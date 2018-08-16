@@ -1,12 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
     var Tutor = sequelize.define("Tutor", {
-
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            autoIncrement: true,
-            primaryKey: true
-        },
         name: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -26,6 +19,10 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
         },
         subjects: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        gradeLevel: {
             type: DataTypes.STRING,
             allowNull: false
         },
