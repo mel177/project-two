@@ -1,3 +1,131 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+body {
+  background: url("../imgs/background.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+.top-bar {
+  background: #43664b;
+  height: 110px;
+}
+
+.top-bar-left {
+  margin-left: 50px;
+}
+
+#logo {
+  height: 80px;
+  float: left;
+  margin-right: 10px;
+  margin-top: 20px;
+  -webkit-filter: drop-shadow(2px 2px 2px #202020b4);
+  filter: drop-shadow(2px 2px 2px #202020b4);
+}
+
+.title {
+  color: #ffb751;
+  font-family: 'Title';
+  font-size: 72px;
+  text-shadow: 4px 4px #202020b4;
+}
+
+.tagline {
+  color: #fdc15b;
+  margin-top: -40px;
+  margin-left: 250px;
+}
+
+.top-bar-right {
+  margin-right: 50px;
+}
+
+.top-bar-right a {
+  color: #fdc15b;
+}
+
+.top-bar-right a:hover {
+  color: #ce913c;
+}
+
+.top-bar-right a:last-child {
+  border-left: solid 2px;
+  padding-left: 5px;
+}
+
+.container {
+  text-align: center;
+  height: 650px;
+  padding-top: 300px;
+}
+
+form {
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+}
+
+.input-group {
+  max-width: 600px;
+}
+
+#selectMenu {
+  max-width: 130px;
+}
+
+.input-group-rounded .input-group-field {
+  border-radius: 5000px 0 0 5000px;
+  padding-left: 1rem;
+}
+
+.input-group-rounded .input-group-button .button {
+  border-radius: 0 5000px 5000px 0;
+  height: 2.4375rem;
+  font-size: 0.8rem;
+  background: #43664b;
+}
+
+.input-group-rounded .input-group-button .button:hover {
+  background: #253829;
+}
+
+.footer {
+  text-align: center;
+  height: 400px;
+  padding-top: 50px;
+  margin-bottom: 0px;
+  color: white;
+  background: #1b1b1bef;
+}
+
+.footer-links {
+  margin: 30px;
+}
+
+.footer a {
+  text-align: center;
+  display: inline-block;
+  border-right: solid 1.5px;
+  padding-right: 10px;
+  padding-left: 5px;
+  color: #fdc15b;
+}
+
+.footer a:hover {
+  color: #ce913c;
+}
+
+.footer a:last-child {
+  border-right: none;
+}
+
+#copy {
+  margin-top: 80px;
+}
+
+@font-face {
+  font-family: 'Title';
+  src: url(../fonts/title.ttf) format('truetype');
+}

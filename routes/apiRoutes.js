@@ -1,5 +1,5 @@
 var db = require("../models");
-var router = app.Router();
+
 
 module.exports = function(router) {
 

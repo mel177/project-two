@@ -1,9 +1,8 @@
 var db = require("../models");
-var router = app.Router();
+
 
 module.exports = function(router) {
 
-module.exports = function(app) {
 
 //Render the home page of the app
 router.get("/", function(req, res) {
@@ -23,7 +22,7 @@ router.get("/sign-up", function(req, res){
   router.get("*", function(req, res) {
     res.render("404");
   });
-};
+
 
 
 };
