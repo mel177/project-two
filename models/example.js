@@ -3,5 +3,5 @@ module.exports = function(sequelize, DataTypes) {
     name: {type: DataTypes.STRING},
     description: DataTypes.TEXT
   });
-  return Example;
+  return Tutors;
 };
