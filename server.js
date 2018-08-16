@@ -31,7 +31,8 @@ var syncOptions = { force: false };
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
 if (process.env.NODE_ENV === "test") {
-  syncOptions.force = true;
+// true will make database reset, use false if u want to keep the db
+  syncOptions.force = false;
 }
 
 // Starting the server, syncing our models ------------------------------------/
