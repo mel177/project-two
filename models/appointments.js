@@ -1,12 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
 
     var Appointment = sequelize.define("Appointment", {
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            autoIncrement: true,
-            primaryKey: true
-        },
         subject: {
             type: DataTypes.STRING,
             allowNull: false,
