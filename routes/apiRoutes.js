@@ -23,12 +23,13 @@ module.exports = function(router) {
             username: req.body.username,
             password: req.body.password,
             bio: req.body.bio,
-            phonenumber: req.body.number        
+            phonenumber: req.body.number,
+            subject: req.body.subject
     }).then(function(dbTutor) {
       res.json(dbTutor);
     });
   });
-  
+
 //Create a new student with the data avaiable to us in req.body from the sign up form
   router.post("/create", function(req, res) {
     //console.log(req.body);
@@ -41,6 +42,14 @@ module.exports = function(router) {
       res.json(dbTutor);
     });
   });
+
+  router.post("/update", function (req, res){
+    db.Tutors.update({
+      where: {
+        id: req.body.id
+      }
+    })
+  })
 
 
   // Delete the Tutor with the id available to us in req.params.id
