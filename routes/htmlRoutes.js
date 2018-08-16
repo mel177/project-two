@@ -1,27 +1,28 @@
 var db = require("../models");
 
-module.exports = function(app) {
-  // Load index page
-  app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
-      });
-    });
+
+module.exports = function(router) {
+
+
+//Render the home page of the app
+router.get("/", function(req, res) {
+  //if the client is a tutor then render tutor view
+  //if the client is a student then render the student view
+  //else?
+      res.render('index')
   });
 
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
-      });
-    });
-  });
+//Render the sign up page
+router.get("/sign-up", function(req, res){
+  res.render('sign-up')
+});
+
 
   // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
+  router.get("*", function(req, res) {
     res.render("404");
   });
+
+
+
 };
