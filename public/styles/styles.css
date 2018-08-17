@@ -5,6 +5,7 @@
 body {
   background: url("../imgs/background.jpg") no-repeat center center fixed;
   background-size: cover;
+  font-family: 'Fine';
 }
 
 .top-bar {
@@ -32,12 +33,6 @@ body {
   text-shadow: 4px 4px #202020b4;
 }
 
-.tagline {
-  color: #fdc15b;
-  margin-top: -40px;
-  margin-left: 250px;
-}
-
 .top-bar-right {
   margin-right: 50px;
 }
@@ -58,7 +53,15 @@ body {
 .container {
   text-align: center;
   height: 650px;
-  padding-top: 300px;
+  padding-top: 250px;
+}
+
+.sub-text {
+  font-family: 'Sub';
+  color: #ffb751;
+  font-size: 30px;
+  text-shadow: 2px 2px #202020;
+  margin-bottom: 20px;
 }
 
 form {
@@ -83,7 +86,7 @@ form {
 .input-group-rounded .input-group-button .button {
   border-radius: 0 5000px 5000px 0;
   height: 2.4375rem;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   background: #43664b;
 }
 
@@ -97,7 +100,7 @@ form {
   padding-top: 50px;
   margin-bottom: 0px;
   color: white;
-  background: #1b1b1bef;
+  background: #1b1b1bf5;
 }
 
 .footer-links {
@@ -128,4 +131,14 @@ form {
 @font-face {
   font-family: 'Title';
   src: url(../fonts/title.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Sub';
+  src: url(../fonts/subtext.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Fine';
+  src: url(../fonts/fineness.ttf) format('truetype');
 }
