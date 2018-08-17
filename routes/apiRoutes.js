@@ -1,4 +1,4 @@
-var db = require("../models");
+var db = require("../models/");
 var app = require('express');
 var router = app.Router();
 module.exports = function(router) {
@@ -14,7 +14,7 @@ module.exports = function(router) {
         //res.json(dbTutor)
       //res.render('index', dbTutors);
       console.log("DB TUTORS: ", dbTutors)
-      res.render('home')
+      res.render('index')
     });
   });
 
