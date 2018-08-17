@@ -1,17 +1,20 @@
 var db = require("../models");
-
-
+var app = require('express');
+var router = app.Router();
 module.exports = function(router) {
 
   // Find all Tutors with the subject searched for and return them to the user with res.json
   router.get("/api/tutors", function(req, res) {
-    db.Tutors.findAll({
+    console.log("REQ BODY SUBJECT: ",req.body.subject)
+    db.Tutor.findAll({
         where: {
-            subject: req.body.subject
+            subjects: req.body.subject
         }
     }).then(function(dbTutors) {
         //res.json(dbTutor)
       //res.render('index', dbTutors);
+      console.log("DB TUTORS: ", dbTutors)
+      res.render('home')
     });
   });
 

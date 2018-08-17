@@ -12,6 +12,13 @@ router.get("/", function(req, res) {
       res.render('index')
   });
 
+  router.get("/home", function(req, res) {
+    //if the client is a tutor then render tutor view
+    //if the client is a student then render the student view
+    //else?
+        res.render('home')
+    });
+
 //Render the sign up page
 router.get("/sign-up", function(req, res){
   res.render('sign-up')

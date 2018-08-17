@@ -11,12 +11,13 @@ $(document).ready(function() {
   
   // Adding event listeners to the form to create a new object, and the button to delete
   // an Author
-  $(document).on("submit", "#tbd", handleUserFormSubmit);
+  //$(document).on("submit", "#tbd", handleUserFormSubmit);
   
 
   // A function to handle what happens when the form is submitted to create a new Author
   function handleUserFormSubmit(event) {
     event.preventDefault();
+    console.log("this submitted");
     // Don't do anything if the name fields hasn't been filled out
     if (!firstNameInput || lastNameInput || emailInput || aboutInput || subjectInput) {
       return;

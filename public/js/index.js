@@ -5,6 +5,18 @@ var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
+
+// home search functionailty
+// $("#search").on('click',function(e){
+//   e.preventDefault();
+//   console.log("SEARCH FIRED!")
+//   var searchData ={
+//     subject:$("#subject").val().trim()
+
+//   };
+$.GET('/api/tutors',searchData, function(data){})
+
+})
 var API = {
   saveExample: function(example) {
     return $.ajax({
