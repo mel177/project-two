@@ -4,16 +4,16 @@
             <p>A better way to find a tutor.</p>
         </div>
 
-        <form action="/api/tutors" method="GET">
+        <form method="POST" action="/api/tutors" >
             <div class="input-group input-group-rounded">
-                <input class="input-group-field" type="search" name="subject" placeholder="Enter a subject (ie. Math)">
+                <input class="input-group-field" type="text" name="subject"  id="subject" placeholder="Enter a subject (ie. Math)"> 
                 <select id="selectMenu">
                     <option value="college">College</option>
                     <option value="high">High School</option>
                     <option value="middle">Middle School</option>
                 </select>
                 <div class="input-group-button">
-                    <input type="submit" class="button secondary" value="Search">
+                    <input type="submit" class="button secondary" value="Search" >
                 </div>
             </div>
         </form>

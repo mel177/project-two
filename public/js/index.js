@@ -8,12 +8,12 @@ var $exampleList = $("#example-list");
 
 // home search functionailty
 // $("#search").on('click',function(e){
-//   e.preventDefault();
-//   console.log("SEARCH FIRED!")
-//   var searchData ={
-//     subject:$("#subject").val().trim()
+  // e.preventDefault();
+ // console.log("SEARCH FIRED!")
+ // var searchData ={
+ //   subject:$("#subject").val().trim()
 
-//   };
+ //  };
 $.GET('/api/tutors',searchData, function(data){})
 
 })
@@ -30,7 +30,7 @@ var API = {
   },
   getExamples: function() {
     return $.ajax({
-      url: "api/examples",
+      url: "api/tutors",
       type: "GET"
     });
   },
