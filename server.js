@@ -4,7 +4,7 @@ var app = express();
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 var PORT = process.env.PORT || 3000;
-var routes = require("./routes/controller.js");
+var routes = require ("./routes/controller");
 var passport = require('passport');
 var session = require('express-session');
 var env = require('dotenv').load();
@@ -19,7 +19,7 @@ var PORT = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
-app.use("/", routes);
+
 
 // For Passport
 // app.use(cookieSession({
@@ -29,6 +29,8 @@ app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized:true})
 
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
+
+
 
 
 // Handlebars
@@ -41,15 +43,20 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
 
+
+// Routes
+require("./routes/controller")(app);
+
+
+//require("./routes/controller")(app);
 var syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
 if (process.env.NODE_ENV === "test") {
-  syncOptions.force = true;
+// true will make database reset, use false if u want to keep the db
+  syncOptions.force = false;
 }
 
 // Starting the server, syncing our models ------------------------------------/

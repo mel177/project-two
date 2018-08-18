@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
 
-    var Appointment = sequelize.define("Appointment", {
+    var Appointments = sequelize.define("Appointments", {
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -46,23 +46,21 @@ module.exports = function(sequelize, DataTypes) {
             }
         }
 
-    }, {
-        classMethods: {
-            associate: function(models) {
-                Appointment.belongsTo(models.Tutor, {
-                    foreignKey: {
-                        allowNull: false
-                    },
-                    primaryKey: true
-                });
-                Appointment.belongsTo(models.Student, {
-                    foreignKey: {
-                        allowNull: false
-                    },
-                    primaryKey: true
-                });
-            }
-        }
     });
-    return Appointment;
+
+    Appointments.associate = function(models) {
+        Appointments.belongsTo(models.Tutors, {
+            foreignKey: {
+                allowNull: false
+            },
+            primaryKey: true
+        });
+        Appointments.belongsTo(models.Students, {
+            foreignKey: {
+                allowNull: false
+            },
+            primaryKey: true
+        });
+    };
+    return Appointments;
 };

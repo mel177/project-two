@@ -1,19 +1,19 @@
-var express = require("express");
+
 var passport = require("passport");
 
-var router = express.Router();
+
 var db = require("../models");
 var passData = require("../config/passport/passport.js");
 
-
+var router = (app) => {
 
 // GET route for retrieving all students 
-router.get('/index', function(req, res, next) {
+app.get('/index', function(req, res, next) {
     db.Student.findAll({
 
-    }).then(function(dbStudent) {
+    }).then(function(dbStudents) {
         var hbsObject = {
-            students: dbStudent
+            students: dbStudents
         };
         res.render("index", hbsObject);
     });
@@ -24,7 +24,7 @@ router.get('/index', function(req, res, next) {
 
 //---- START home page route--------------------//
 
-router.get('/', function(req, res) {
+app.get('/', function(req, res) {
     res.render('index');
 });
 //---- END home page route--------------------//
@@ -33,7 +33,7 @@ router.get('/', function(req, res) {
 
 //----register and login routes--------------------//
 
-router.get('/login', function(req, res) {
+app.get('/login', function(req, res) {
     res.render('login');
 });
 
@@ -41,7 +41,7 @@ router.get('/login', function(req, res) {
 //----------- START ----- POST route that handles the account registration process ----// 
 // if user is successfully created, it redirects to the next page in the registration process, /profile; 
 // otherwise do the following: 
-router.post('/register', passport.authenticate('local-signup', {
+app.post('/register', passport.authenticate('local-signup', {
 
     successRedirect: '/profile',
     failureRedirect: '/login'
@@ -49,14 +49,14 @@ router.post('/register', passport.authenticate('local-signup', {
 }));
 
 //--------GET route that handles the logout process 
-router.get('/logout', function(req, res) {
+app.get('/logout', function(req, res) {
     req.session.destroy(function(err) {
         res.redirect('/');
     });
 });
 
 //--------- POST route that handles the login process 
-router.post('/login', passport.authenticate('local-signin', { failureRedirect: '/login' }),
+app.post('/login', passport.authenticate('local-signin', { failureRedirect: '/login' }),
   function(req, res) {
     // console.log(req);
 
@@ -92,12 +92,12 @@ router.post('/login', passport.authenticate('local-signin', { failureRedirect: '
 //------------------- START profile routes -----------------//
 
 // GET route for loading the profile page, where registered users fill out more profile information
-router.get('/profile', isLoggedIn, function(req, res, next) {
+app.get('/profile', isLoggedIn, function(req, res, next) {
     res.render('profile');
 });
 
 // POST route that creates either a Student or a Tutor in the database based on user's entry
-router.post('/profile', function(req, res) {
+app.post('/profile', function(req, res) {
     var userData = {
         name: req.body.name,
         username: req.body.username,
@@ -107,19 +107,19 @@ router.post('/profile', function(req, res) {
     };
     console.log("This is the userData object", userData);
     if (req.body.uType == 1) {
-        db.Student.create(userData).then(function(dbStudent) {
+        db.Student.create(userData).then(function(dbStudents) {
             res.redirect('/students');
         });
     } else {
         userData.subjects = req.body.subjects;
-        db.Tutor.create(userData).then(function(dbTutor) {
+        db.Tutor.create(userData).then(function(dbTutors) {
             res.redirect('/tutors');
         });
     }
 });
 
 
-router.get("/schedule", isLoggedIn, function(req, res) {
+app.get("/schedule", isLoggedIn, function(req, res) {
     // var hbsObject1, hbsObject2;
     // var obj;
 
@@ -139,83 +139,83 @@ router.get("/schedule", isLoggedIn, function(req, res) {
    
 });
 
-router.post("/api/appointments", function(req, res) { // what does the' argument do?
+app.post("/api/appointments", function(req, res) { // what does the' argument do?
     // console.log(req.body);
     var userid = req.body.StudentId
-    db.Appointment.create(req.body).then(function(dbAppointment) {
+    db.Appointments.create(req.body).then(function(dbAppointments) {
 
-        res.json(dbAppointment);
+        res.json(dbAppointments);
         // res.render("/");
     });
     // console.log(req.body);
 });
 
-// GET get route to find all appointments with left outer join including three models
-router.get("/api/appointments", function(req, res) {
-    db.Appointment.findAll({
+// GET get route to find all Appointmentss with left outer join including three models
+app.get("/api/appointments", function(req, res) {
+    db.Appointments.findAll({
         include: [db.Student, db.Tutor]
-    }).then(function(dbAppointment) {
-        res.json(dbAppointment);
+    }).then(function(dbAppointments) {
+        res.json(dbAppointments);
     });
 });
 
-// GET route for retrieving a single appointment
-router.get("/api/appointments/:id", function(req, res) {
-    db.Appointment.findOne({
+// GET route for retrieving a single Appointments
+app.get("/api/appointments/:id", function(req, res) {
+    db.Appointments.findOne({
         where: {
             id: req.params.id
         },
         include: [db.Student, db.Tutor]
-    }).then(function(dbAppointment) {
-        res.json(dbAppointment);
+    }).then(function(dbAppointments) {
+        res.json(dbAppointments);
     });
 });
 
 
 //----students route--------------------//
 //get all students
-router.get('/api/students', function(req, res, next) {
+app.get('/api/students', function(req, res, next) {
     db.Student.findAll(
         // include: [db.Post]
-    ).then(function(dbStudent) {
-        res.json(dbStudent);
+    ).then(function(dbStudents) {
+        res.json(dbStudents);
     });
 });
 //get students by id
-router.get('/api/students/:id', function(req, res, next) {
+app.get('/api/students/:id', function(req, res, next) {
     db.Student.findAll({
         where: {
             id: req.params.id
         }
         // include: [db.Post]
-    }).then(function(dbStudent) {
-        res.json(dbStudent);
+    }).then(function(dbStudents) {
+        res.json(dbStudents);
     });
 });
 
 
-router.get('/api/tutors', function(req, res, next) {
+app.get('/api/tutors', function(req, res, next) {
     db.Tutor.findAll(
         // include: [db.Post]
-    ).then(function(dbTutor) {
-        res.json(dbTutor);
+    ).then(function(dbTutors) {
+        res.json(dbTutors);
     });
 });
 
 //GET route for retrieving tutor by id
-router.get('/api/tutors/:id', function(req, res, next) {
+app.get('/api/tutors/:id', function(req, res, next) {
     db.Tutor.findAll({
         where: {
             id: req.params.id
         }
-    }).then(function(dbTutor) {
-        res.json(dbTutor);
+    }).then(function(dbTutors) {
+        res.json(dbTutors);
     });
 });
 
 
 // GET route for retrieving all tutors for given subject to populate dropdown on scheduling page
-router.get("/api/tutors/:subject", function(req, res) {
+app.get("/api/tutors/:subject", function(req, res) {
     db.Tutor.findAll({
         where: {
             subject: req.params.subject
@@ -229,7 +229,7 @@ router.get("/api/tutors/:subject", function(req, res) {
 });
 
 
-router.get('/students', isLoggedIn, function(req, res, next) {
+app.get('/students', isLoggedIn, function(req, res, next) {
     db.User.findOne(
         {
             where: {
@@ -243,12 +243,12 @@ router.get('/students', isLoggedIn, function(req, res, next) {
                 where: {
                     UserId: dbUser.dataValues.id
                 },
-                include: [db.Appointment]
+                include: [db.Appointments]
             }
-                ).then(function(dbStudent){
+                ).then(function(dbStudents){
 
                 var hbsObject = {
-                    students: dbStudent
+                    students: dbStudents
                 };
                 // console.log(JSON.stringify(hbsObject));
                 res.render("students", hbsObject);
@@ -259,7 +259,7 @@ router.get('/students', isLoggedIn, function(req, res, next) {
     // res.render('students');
 });
 
-router.get('/students-home', function(req, res) {
+app.get('/students-home', function(req, res) {
     db.User.findOne(
         {
             where: {
@@ -274,10 +274,10 @@ router.get('/students-home', function(req, res) {
                     UserId: dbUser.dataValues.id
                 }
             }
-                ).then(function(dbStudent){
+                ).then(function(dbStudents){
 
                 var hbsObject = {
-                    students: dbStudent
+                    students: dbStudents
                 };
                 // console.log(hbsObject);
                 res.render('students-home');
@@ -288,7 +288,7 @@ router.get('/students-home', function(req, res) {
     
 });
 
-router.get('/tutors-home', function(req, res) {
+app.get('/tutors-home', function(req, res) {
     db.User.findOne(
         {
             where: {
@@ -303,10 +303,10 @@ router.get('/tutors-home', function(req, res) {
                     UserId: dbUser.dataValues.id
                 }
             }
-                ).then(function(dbTutor){
+                ).then(function(dbTutors){
 
                 var hbsObject = {
-                    tutors: dbTutor
+                    tutors: dbTutors
                 };
                 // console.log(hbsObject);
                 res.render('tutors-home');
@@ -317,7 +317,7 @@ router.get('/tutors-home', function(req, res) {
     
 });
 
-router.get('/tutors', isLoggedIn, function(req, res, next) {
+app.get('/tutors', isLoggedIn, function(req, res, next) {
     db.User.findOne(
         {
             where: {
@@ -331,12 +331,12 @@ router.get('/tutors', isLoggedIn, function(req, res, next) {
                 where: {
                     UserId: dbUser.dataValues.id
                 },
-                include: [db.Appointment]
+                include: [db.Appointments]
             }
-                ).then(function(dbTutor){
+                ).then(function(dbTutors){
 
                 var hbsObject = {
-                    tutors: dbTutor
+                    tutors: dbTutors
                 };
                 // console.log(JSON.stringify(hbsObject));
                 res.render("tutors", hbsObject);
@@ -355,6 +355,9 @@ router.get('/tutors', isLoggedIn, function(req, res, next) {
 
 
 
+}
+//--- login helper function --------------//
+
 //--- login helper function for Passport --------------//
 // This lets us add the argument isLoggedIn to GET routes for rendering hbs pages to make them accessible only when a user is logged in; if user isn't logged in, it redirects to the login page
 function isLoggedIn(req, res, next) {
@@ -362,6 +365,4 @@ function isLoggedIn(req, res, next) {
         return next();
     res.redirect('/login');
 }
-//--- login helper function --------------//
-
 module.exports = router;
