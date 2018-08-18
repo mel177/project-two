@@ -39,7 +39,7 @@ app.get('/login', function(req, res) {
 
 
 //----------- START ----- POST route that handles the account registration process ----// 
-// if user is successfully created, it redirects to the next page in the registration process, /profile; 
+// if Students is successfully created, it redirects to the next page in the registration process, /profile; 
 // otherwise do the following: 
 app.post('/register', passport.authenticate('local-signup', {
 
@@ -60,20 +60,20 @@ app.post('/login', passport.authenticate('local-signin', { failureRedirect: '/lo
   function(req, res) {
     // console.log(req);
 
-    db.User.findOne(
+    db.Students.findOne(
         {
             where: {
-                id: req.user.id
+                id: req.Students.id
             }, 
             include: [db.Student, db.Tutor]
         }
-        ).then(function(dbUser) {
-            // console.log(dbUser);
-            // console.log(dbUser);
-            if(dbUser.Student !== null){
+        ).then(function(dbStudents) {
+            // console.log(dbStudents);
+            // console.log(dbStudents);
+            if(dbStudents.Student !== null){
                 res.redirect('/students-home');
             }
-            if(dbUser.Tutor !== null){
+            if(dbStudents.Tutor !== null){
                 res.redirect('/tutors-home');
             }
  
@@ -91,28 +91,28 @@ app.post('/login', passport.authenticate('local-signin', { failureRedirect: '/lo
 
 //------------------- START profile routes -----------------//
 
-// GET route for loading the profile page, where registered users fill out more profile information
+// GET route for loading the profile page, where registered Studentss fill out more profile information
 app.get('/profile', isLoggedIn, function(req, res, next) {
     res.render('profile');
 });
 
-// POST route that creates either a Student or a Tutor in the database based on user's entry
+// POST route that creates either a Student or a Tutor in the database based on Students's entry
 app.post('/profile', function(req, res) {
-    var userData = {
+    var StudentsData = {
         name: req.body.name,
-        username: req.body.username,
+        Studentsname: req.body.Studentsname,
         phone: req.body.phone,
         address: req.body.address,
-        UserId: req.user.id
+        StudentsId: req.Students.id
     };
-    console.log("This is the userData object", userData);
+    console.log("This is the StudentsData object", StudentsData);
     if (req.body.uType == 1) {
-        db.Student.create(userData).then(function(dbStudents) {
+        db.Student.create(StudentsData).then(function(dbStudents) {
             res.redirect('/students');
         });
     } else {
-        userData.subjects = req.body.subjects;
-        db.Tutor.create(userData).then(function(dbTutors) {
+        StudentsData.subjectss = req.body.subjectss;
+        db.Tutor.create(StudentsData).then(function(dbTutors) {
             res.redirect('/tutors');
         });
     }
@@ -123,15 +123,15 @@ app.get("/schedule", isLoggedIn, function(req, res) {
     // var hbsObject1, hbsObject2;
     // var obj;
 
-    db.User.findOne(
+    db.Students.findOne(
         {
             where: {
-                id: req.user.id
-            }, include: [db.Student, db.Tutor]
+                id: req.Students.id
+            }, include: [db.Students, db.Tutors]
         }
-        ).then(function(dbUser) {
+        ).then(function(dbStudents) {
         hbsObject = {
-            user: dbUser
+            Students: dbStudents
         };
         console.log(hbsObject);
         res.render("schedule", hbsObject);
@@ -141,7 +141,7 @@ app.get("/schedule", isLoggedIn, function(req, res) {
 
 app.post("/api/appointments", function(req, res) { // what does the' argument do?
     // console.log(req.body);
-    var userid = req.body.StudentId
+    var Studentsid = req.body.StudentId
     db.Appointments.create(req.body).then(function(dbAppointments) {
 
         res.json(dbAppointments);
@@ -153,7 +153,7 @@ app.post("/api/appointments", function(req, res) { // what does the' argument do
 // GET get route to find all Appointmentss with left outer join including three models
 app.get("/api/appointments", function(req, res) {
     db.Appointments.findAll({
-        include: [db.Student, db.Tutor]
+        include: [db.Students, db.Tutors]
     }).then(function(dbAppointments) {
         res.json(dbAppointments);
     });
@@ -165,7 +165,7 @@ app.get("/api/appointments/:id", function(req, res) {
         where: {
             id: req.params.id
         },
-        include: [db.Student, db.Tutor]
+        include: [db.Students, db.Tutors]
     }).then(function(dbAppointments) {
         res.json(dbAppointments);
     });
@@ -175,7 +175,7 @@ app.get("/api/appointments/:id", function(req, res) {
 //----students route--------------------//
 //get all students
 app.get('/api/students', function(req, res, next) {
-    db.Student.findAll(
+    db.Students.findAll(
         // include: [db.Post]
     ).then(function(dbStudents) {
         res.json(dbStudents);
@@ -183,7 +183,7 @@ app.get('/api/students', function(req, res, next) {
 });
 //get students by id
 app.get('/api/students/:id', function(req, res, next) {
-    db.Student.findAll({
+    db.Students.findAll({
         where: {
             id: req.params.id
         }
@@ -194,9 +194,9 @@ app.get('/api/students/:id', function(req, res, next) {
 });
 
 
-app.get('/api/tutors', function(req, res, next) {
-    db.Tutor.findAll(
-        // include: [db.Post]
+app.post('/api/tutors', function(req, res, next) {
+    db.Tutors.findAll(
+        
     ).then(function(dbTutors) {
         res.json(dbTutors);
     });
@@ -204,9 +204,9 @@ app.get('/api/tutors', function(req, res, next) {
 
 //GET route for retrieving tutor by id
 app.get('/api/tutors/:id', function(req, res, next) {
-    db.Tutor.findAll({
+    db.Tutors.findOne({
         where: {
-            id: req.params.id
+            id: req.body.id
         }
     }).then(function(dbTutors) {
         res.json(dbTutors);
@@ -214,34 +214,35 @@ app.get('/api/tutors/:id', function(req, res, next) {
 });
 
 
-// GET route for retrieving all tutors for given subject to populate dropdown on scheduling page
-app.get("/api/tutors/:subject", function(req, res) {
-    db.Tutor.findAll({
+// GET route for retrieving all tutors for given subjects to populate dropdown on scheduling page
+app.post("/api/tutors/:subjects", function(req, res) {
+    db.Tutors.findAll({
         where: {
-            subject: req.params.subject
+            subjects: req.body.subjects
         },
-    }).then(function(dbSubjectTutors) {
+    }).then(function(dbTutors) {
         var hbsObject = {
-            tutors: dbSubjectTutors
+            tutors: dbTutors
         };
         res.render("schedule", hbsObject);
+        
     });
 });
 
 
 app.get('/students', isLoggedIn, function(req, res, next) {
-    db.User.findOne(
+    db.Students.findOne(
         {
             where: {
-                id: req.user.id
+                id: req.Students.id
             }
         }
-        ).then(function(dbUser) {
-            // console.log(dbUser);
+        ).then(function(dbStudents) {
+            // console.log(dbStudents);
             db.Student.findOne(
             {
                 where: {
-                    UserId: dbUser.dataValues.id
+                    StudentsId: dbStudents.dataValues.id
                 },
                 include: [db.Appointments]
             }
@@ -260,18 +261,18 @@ app.get('/students', isLoggedIn, function(req, res, next) {
 });
 
 app.get('/students-home', function(req, res) {
-    db.User.findOne(
+    db.Students.findOne(
         {
             where: {
-                id: req.user.id
+                id: req.Students.id
             }
         }
-        ).then(function(dbUser) {
-            // console.log(dbUser);
+        ).then(function(dbStudents) {
+            // console.log(dbStudents);
             db.Student.findOne(
             {
                 where: {
-                    UserId: dbUser.dataValues.id
+                    StudentsId: dbStudents.dataValues.id
                 }
             }
                 ).then(function(dbStudents){
@@ -289,18 +290,18 @@ app.get('/students-home', function(req, res) {
 });
 
 app.get('/tutors-home', function(req, res) {
-    db.User.findOne(
+    db.Students.findOne(
         {
             where: {
-                id: req.user.id
+                id: req.Students.id
             }
         }
-        ).then(function(dbUser) {
-            // console.log(dbUser);
+        ).then(function(dbTutors) {
+            // console.log(dbStudents);
             db.Tutor.findOne(
             {
                 where: {
-                    UserId: dbUser.dataValues.id
+                    TutorsId: dbTutors.dataValues.id
                 }
             }
                 ).then(function(dbTutors){
@@ -318,18 +319,18 @@ app.get('/tutors-home', function(req, res) {
 });
 
 app.get('/tutors', isLoggedIn, function(req, res, next) {
-    db.User.findOne(
+    db.Students.findOne(
         {
             where: {
-                id: req.user.id
+                id: req.Students.id
             }
         }
-        ).then(function(dbUser) {
-            // console.log(dbUser);
+        ).then(function(dbStudents) {
+            // console.log(dbStudents);
             db.Tutor.findOne(
             {
                 where: {
-                    UserId: dbUser.dataValues.id
+                    StudentsId: dbStudents.dataValues.id
                 },
                 include: [db.Appointments]
             }
@@ -359,7 +360,7 @@ app.get('/tutors', isLoggedIn, function(req, res, next) {
 //--- login helper function --------------//
 
 //--- login helper function for Passport --------------//
-// This lets us add the argument isLoggedIn to GET routes for rendering hbs pages to make them accessible only when a user is logged in; if user isn't logged in, it redirects to the login page
+// This lets us add the argument isLoggedIn to GET routes for rendering hbs pages to make them accessible only when a Students is logged in; if Students isn't logged in, it redirects to the login page
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();

@@ -34,11 +34,7 @@ app.use(passport.session()); // persistent login sessions
 
 
 // Handlebars
-app.engine(
-  "handlebars",
-  exphbs({
-    defaultLayout: "main"
-  })
+app.engine( "handlebars", exphbs({ defaultLayout: "main" })
 );
 app.set("view engine", "handlebars");
 
@@ -48,15 +44,13 @@ app.set("view engine", "handlebars");
 // Routes
 require("./routes/controller")(app);
 
-
-//require("./routes/controller")(app);
-var syncOptions = { force: false };
+var syncOptions = { force: true };
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
 if (process.env.NODE_ENV === "test") {
 // true will make database reset, use false if u want to keep the db
-  syncOptions.force = false;
+  syncOptions.force = true;
 }
 
 // Starting the server, syncing our models ------------------------------------/
