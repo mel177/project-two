@@ -1,28 +1,102 @@
 var db = require("../models");
 
 
-module.exports = function(router) {
+// Routes
+// =============================================================
+module.exports = function(app) {
 
-
-//Render the home page of the app
-router.get("/", function(req, res) {
-  //if the client is a tutor then render tutor view
-  //if the client is a student then render the student view
-  //else?
-      res.render('index')
+  app.get("/", function (req, res) {
+    res.render("index")
   });
 
-//Render the sign up page
-router.get("/sign-up", function(req, res){
-  res.render('sign-up')
-});
+  app.get("/results", function (req, res) {  
+    db.tutor.findAll({        
+    }).then(function(data){
+      var hbsObject = {
+        tutor: data
+      };
+    res.render("results", hbsObject);    
+    })
+  }); 
 
+  app.get("/profiles", function (req, res) {  
+    db.tutor.findAll({        
+    }).then(function(data){
+      var hbsObject = {
+        tutor: data
+      };
+    res.render("profiles", hbsObject);    
+    })
+  }); 
 
-  // Render 404 page for any unmatched routes
-  router.get("*", function(req, res) {
-    res.render("404");
+  app.get("/appointment", function (req, res) {  
+    db.tutor.findAll({        
+    }).then(function(data){
+      var hbsObject = {
+        tutor: data
+      };
+    res.render("appointment", hbsObject);    
+    })
+  }); 
+
+  app.put("/appointment/:id", function(req, res) {
+    db.tutor.update({
+        available: req.body.available
+      },
+        {
+      where: {
+        id: req.params.id,
+      }
+    }).then(function(dbTutors) {
+      res.redirect("/cancel");
+    });
+  });
+
+  app.get("/cancel", function (req, res) {  
+    db.User.findAll({        
+    }).then(function(data){
+      var hbsObject = {
+        user: data
+      };
+    res.render("cancel", hbsObject);    
+    })
+  }); 
+
+  app.put("/cancel/:id", function(req, res) {
+    db.User.update({
+        available: req.body.available
+      },
+        {
+      where: {
+        id: req.params.id,
+      }
+    }).then(function(dbTutors) {
+      res.redirect("/cancel");
+    });
   });
 
 
+  app.delete("/appointment/:id", function(req, res) {
+    db.tutor.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbTutors) {
+      res.redirect("/delete");
+    });
+  });
 
+  app.put("/appointment/:id", function(req, res) {
+    db.tutor.update({
+        available: req.body.available
+      },
+        {
+      where: {
+        id: req.params.id,
+      }
+    }).then(function(dbTutors) {
+      res.redirect("/appointment");
+    });
+  });
+  
 };
