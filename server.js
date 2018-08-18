@@ -1,9 +1,16 @@
 require("dotenv").config();
 var express = require("express");
+var app = express();
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
-
+var PORT = process.env.PORT || 3000;
+var routes = require("./routes/controller.js");
+var passport = require('passport');
+var session = require('express-session');
+var env = require('dotenv').load();
 var db = require("./models");
+
+
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -12,6 +19,17 @@ var PORT = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
+app.use("/", routes);
+
+// For Passport
+// app.use(cookieSession({
+//     keys: ['secret1', 'secret2']
+// }));
+app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized:true})); //session secret
+
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+
 
 // Handlebars
 app.engine(
