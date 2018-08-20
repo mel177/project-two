@@ -1,3 +1,4 @@
+/*
 var selectedValue;
 var tutorModal = $('#TBD');
 var tutorModalBody = $('#TBD');
@@ -125,3 +126,4 @@ var tutorRow = "";
 
 }); 
 
+*/

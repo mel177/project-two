@@ -1,3 +1,4 @@
+/*
 $(document).ready(function() {
   // Getting references to the name inout and author container, as well as the table body
   var nameInput = $("#tbd").val().trim();
@@ -61,3 +62,4 @@ $(document).ready(function() {
   
 });
 
+*/

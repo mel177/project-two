@@ -1,0 +1,20 @@
+<div class="container">
+
+    <!-- Tutor cards will be displayed here -->
+    {{{ ">tutors/tutors-card"}}}
+       {{#each tutor}}
+        
+            <div class="card">
+                <img src="#" alt="tutor"  class="tutoravi">
+                <h1>{{this.tutorName}}</h1>
+                <p>{{this.tutorSub}}</p>
+                <p>{{this.bio}}</p>
+                <p>{{this.rating}}</p>
+
+                <p><button class="contact">Contact</button></p>
+            </div>
+        
+    {{/each}}
+
+
+</div>
