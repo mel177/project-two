@@ -22,7 +22,7 @@
                 <div class="modal-content">
                     <span class="close">&times;</span>
 
-                    <form action="/api/students" method="GET" style="border:1px solid #ccc">
+                    <form action="/api/create/students" method="POST" style="border:1px solid #ccc">
                         <div class="formContainer">
                             <h2>Sign Up As A Student</h2>
                             <hr>
@@ -118,9 +118,9 @@
                 <p>A better way to find a tutor.</p>
             </div>
 
-            <form action="/api/tutors" method="GET">
+            <form action="/results" method="POST">
                 <div class="input-group input-group-rounded">
-                    <input class="input-group-field" type="search" placeholder="Enter a subject (ie. Math)">
+                    <input class="input-group-field" name="subject" type="search" placeholder="Enter a subject (ie. Math)">
                     <select id="selectMenu">
                         <option value="college">College</option>
                         <option value="high">High School</option>

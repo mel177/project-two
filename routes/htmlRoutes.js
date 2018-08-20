@@ -9,15 +9,11 @@ module.exports = function(app) {
     res.render("index")
   });
 
-  app.get("/results", function (req, res) {  
-    db.tutor.findAll({        
-    }).then(function(data){
-      var hbsObject = {
-        tutor: data
-      };
-    res.render("results", hbsObject);    
-    })
-  }); 
+  app.get("/results", function(req, res){
+    console.log("this does something")
+    res.render("partials/tutors/tutors-card", tutor);
+    });
+ 
 
   app.get("/profiles", function (req, res) {  
     db.tutor.findAll({        
