@@ -39,6 +39,17 @@ module.exports = function(router) {
       res.json(dbTutor);
     });
   });
+  // Signs up a student
+  router.post("/api/create/students", function(req, res) {
+    db.Student.create({
+      name: req.body.name,
+      email: req.body.email,
+      username: req.body.username,
+      password: req.body.psw
+    }).then(function(newStudent) {
+      console.log(newStudent);
+    });
+  });
   /*
 //find specific tutor
   router.get("/api/tutors/:id", function(req, res) {
@@ -53,12 +64,6 @@ module.exports = function(router) {
 
   });
 
-  // find all students
-  router.get("/api/students", function(req, res) {
-    db.Student.findAll({}).then(function(dbStudents) {
-        res.json(dbStudents)
-    });
-  });
 
 //find specific student
 router.get("/api/students/:id", function(req, res) {
