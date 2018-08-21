@@ -3,8 +3,7 @@ var db = require("../models");
 // Routes
 // =============================================================
 module.exports = function(app) {
-  app.get("/", function(req, res) {
-    res.render("index");
+
   });
 
   app.get("/results", function(req, res) {
@@ -40,8 +39,7 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/appointment", function(req, res) {
-    db.tutor.findAll({}).then(function(data) {
+
       var hbsObject = {
         tutor: data
       };
