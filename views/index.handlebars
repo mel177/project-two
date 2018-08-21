@@ -112,9 +112,9 @@
             </div>
         </div>
 
-        <form action="/api/tutors/:subjets" method="GET">
+        <form action="/api/tutors/:subjects" method="POST">
             <div class="input-group input-group-rounded">
-                <input class="input-group-field" type="search" placeholder="Enter a subject (ie. Math)">
+                <input class="input-group-field" name="subjects" type="search" placeholder="Enter a subject (ie. Math)">
                 <select id="selectMenu">
                     <option value="college">College</option>
                     <option value="high">High School</option>

@@ -185,7 +185,7 @@ app.get('/api/students', function(req, res, next) {
 app.get('/api/students/:id', function(req, res, next) {
     db.Students.findAll({
         where: {
-            id: req.params.id
+            id: req.body.id
         }
         // include: [db.Post]
     }).then(function(dbStudents) {
@@ -193,41 +193,48 @@ app.get('/api/students/:id', function(req, res, next) {
     });
 });
 
-
-app.post('/api/tutors', function(req, res, next) {
-    db.Tutors.findAll(
-        
-    ).then(function(dbTutors) {
-        res.json(dbTutors);
-    });
-});
-
-//GET route for retrieving tutor by id
-app.get('/api/tutors/:id', function(req, res, next) {
+//GET route for retrieving tutor by name
+app.get('/api/tutors/:name', function(req, res, next) {
     db.Tutors.findOne({
         where: {
-            id: req.body.id
+            name: req.body.name
         }
     }).then(function(dbTutors) {
         res.json(dbTutors);
     });
 });
 
-
-// GET route for retrieving all tutors for given subjects to populate dropdown on scheduling page
-app.post("/api/tutors/:subjects", function(req, res) {
+app.get("/api/tutors/:subjects", function(req, res) {
+    console.log(req.body.subjects);
     db.Tutors.findAll({
         where: {
             subjects: req.body.subjects
         },
     }).then(function(dbTutors) {
-        var hbsObject = {
-            tutors: dbTutors
-        };
-        res.render("schedule", hbsObject);
+        
+          
+         res.json( dbTutors); 
+         
+        res.render("index");
         
     });
 });
+
+
+// GET route for retrieving all tutors for given subjects to populate dropdown on scheduling page
+app.post("/api/tutors/:subjects", function(req, res) {
+     console.log(req.body.subjects);
+    db.Tutors.findAll({
+         where: {
+             subjects: req.body.subjects
+        },
+     }).then(function(dbTutors) {
+         console.log("POST-2 Tutors DB" + dbTutors);  
+         
+        
+     });
+ });
+
 
 
 app.get('/students', isLoggedIn, function(req, res, next) {
