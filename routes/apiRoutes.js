@@ -12,7 +12,7 @@ module.exports = function(router) {
       //res.json(dbTutors)
       //res.render('results', dbTutors);
       console.log(dbTutors[0])
-      res.render("results", { tutor: dbTutors[0].dataValues }); 
+      res.render("results", { tutor: dbTutors}); 
     });
   });
 
