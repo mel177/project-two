@@ -1,12 +1,13 @@
 var db = require("../models");
-
+var application = application = require('./application');
 
 // Routes
 // =============================================================
 module.exports = function(app) {
 
   app.get("/", function (req, res) {
-    res.render("index")
+    var isLoggedIn = false;
+    res.render("index", { isLoggedIn: isLoggedIn });
   });
 
   app.get("/results", function(req, res){
@@ -25,7 +26,7 @@ module.exports = function(app) {
     })
   }); 
 
-  app.get("/appointment", function (req, res) {  
+  app.get("/appointment", application.isAuthenticated, function (req, res) {  
     db.tutor.findAll({        
     }).then(function(data){
       var hbsObject = {
