@@ -13,14 +13,13 @@ module.exports = function(sequelize, DataTypes) {
         },
       username: {
         type:DataTypes.STRING,
-        allowNull: false,
+        //allowNull: false,
         },
       password: {
         type: DataTypes.STRING,
         allowNull: false
         },
-      
-      }, {
+      {
         classMethods: {
           associate: function(models) {
             Student.belongsTo(models.User, {
