@@ -1,5 +1,6 @@
+/*
 $(document).ready(function() {
-  // Getting references to the name inout and author container, as well as the table body
+  // Getting references to the name input and author container, as well as the table body
   var nameInput = $("#tbd").val().trim();
   var usernameInput = $("#tbd").val().trim();
   var passwordInput = $("#tbd").val().trim();
@@ -11,14 +12,16 @@ $(document).ready(function() {
   
   // Adding event listeners to the form to create a new object, and the button to delete
   // an Author
-  $(document).on("submit", "#tbd", handleUserFormSubmit);
+  //$(document).on("submit", "#tbd", handleUserFormSubmit);
   
 
-  // A function to handle what happens when the form is submitted to create a new Author
+  // A function to handle what happens when the form is submitted to create a new tutor
   function handleUserFormSubmit(event) {
     event.preventDefault();
+    console.log("this submitted");
     // Don't do anything if the name fields hasn't been filled out
-    if (!firstNameInput || lastNameInput || emailInput || aboutInput || subjectInput) {
+    if (!nameInput || usernameInput || passwordInput || phoneInput || subjectsInput || bioInput 
+    || ratingsInput || availabilityInput) {
       return;
     }
     // Calling the insertUser function and passing in the value of the name input
@@ -35,20 +38,20 @@ $(document).ready(function() {
     });
   }
 
-  // A function for creating an author. Calls getAuthors upon completion
+  // A function for creating an tutor.
   function insertUser(userData) {
     $.post("/api/tutors", userData)
-      //.then(getAuthors);
+      
   }
 
-  // Function for retrieving authors and getting them ready to be rendered to the page
-  function getAuthors() {
-    $.get("/api/authors", function(data) {
+  // Function for retrieving tutors and getting them ready to be rendered to the page
+  function getTutors() {
+    $.get("/api/tutors", function(data) {
       var rowsToAdd = [];
       for (var i = 0; i < data.length; i++) {
-        rowsToAdd.push(createAuthorRow(data[i]));
+        rowsToAdd.push(createTutorRow(data[i]));
       }
-      renderAuthorList(rowsToAdd);
+      renderTutorList(rowsToAdd);
       nameInput.val("");
     });
   }
@@ -59,3 +62,5 @@ $(document).ready(function() {
 
   
 });
+
+*/
