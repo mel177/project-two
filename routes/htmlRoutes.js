@@ -20,7 +20,6 @@ module.exports = function(app) {
       var tutor = {
         tutorName: dbTutors.name,
         tutorUsername: dbTutors.username,
-        tutorNumber: dbTutors.phone,
         tutorSub: dbTutors.subjects,
         tutorBio: dbTutors.bio,
         tutorRating: dbTutors.ratings
