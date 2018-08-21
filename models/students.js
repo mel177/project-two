@@ -13,20 +13,12 @@ module.exports = function(sequelize, DataTypes) {
         },
       username: {
         type:DataTypes.STRING,
-        allowNull: false,
+        //allowNull: false,
         },
       password: {
         type: DataTypes.STRING,
         allowNull: false
         },
-      phone: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        },
-      subjects: {
-            type: DataTypes.STRING,
-            allowNull: false
-        }
       }, {
         classMethods: {
           associate: function(models) {

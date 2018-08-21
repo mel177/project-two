@@ -11,17 +11,8 @@ module.exports = function(router) {
     }).then(function(dbTutors) {
       //res.json(dbTutors)
       //res.render('results', dbTutors);
-      console.log(dbTutors[0].dataValues);
-      var tutor = {
-        tutorName: dbTutors[0].dataValues.name,
-        tutorUsername: dbTutors[0].dataValues.username,
-        tutorNumber: dbTutors[0].dataValues.phone,
-        tutorSub: dbTutors[0].dataValues.subjects,
-        tutorBio: dbTutors[0].dataValues.bio,
-        tutorRating: dbTutors[0].dataValues.ratings
-      };
-      console.log(tutor);
-      res.render("results", tutor); 
+
+      res.render("results", { tutor: dbTutors }); 
     });
   });
 
@@ -50,6 +41,7 @@ module.exports = function(router) {
       console.log(newStudent);
     });
   });
+  //router.put("api/students/:id", function (req, res))
   /*
 //find specific tutor
   router.get("/api/tutors/:id", function(req, res) {
