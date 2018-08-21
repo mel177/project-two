@@ -29,6 +29,7 @@ module.exports = function(router) {
       subjects: req.body.subject
     }).then(function(newTutor) {
       console.log(newTutor);
+      res.render("tutprprofile", {tutor: newTutor})
     });
   });
   // Signs up a student
