@@ -42,7 +42,7 @@
             <div class="modal-content">
                 <span class="close">&times;</span>
 
-                <form action="/api/students" method="GET" style="border:1px solid #ccc">
+                <form action="/api/students" method="POST" style="border:1px solid #ccc">
                     <div class="formContainer">
                         <h2>Sign Up As A Student</h2>
                         <hr>
@@ -89,7 +89,7 @@
             <div class="modal-content">
                 <span class="close">&times;</span>
 
-                <form action="/api/tutors" method="GET" style="border:1px solid #ccc">
+                <form action="/api/tutors" method="POST" style="border:1px solid #ccc">
                     <div class="formContainer">
                         <h2>Sign Up As A Tutor</h2>
                         <hr>
@@ -102,7 +102,7 @@
                         <label for="subjects">
                             <b>Subjects</b>
                         </label>
-                        <input type="text" placeholder="Enter Subjects That Apply" required>
+                        <input type="text" placeholder="Enter Subjects That Apply" name="subject" required>
                         <input type="text" placeholder=". . .">
                         <input type="text" placeholder=". . .">
 
@@ -148,9 +148,9 @@
         <p>A better way to find a tutor.</p>
     </div>
 
-    <form action="/api/tutors" method="GET">
+    <form action="/results" method="POST">
         <div class="input-group input-group-rounded">
-            <input class="input-group-field" type="search" placeholder="Enter a subject (ie. Math)">
+            <input class="input-group-field" name="subject" type="search" placeholder="Enter a subject (ie. Math)">
             <select id="selectMenu">
                 <option value="college">College</option>
                 <option value="high">High School</option>
@@ -202,7 +202,6 @@
     var span1 = document.getElementsByClassName("close")[0];
     var span2 = document.getElementsByClassName("close")[1];
     var span3 = document.getElementsByClassName("close")[2];
-
     // When the user clicks on the button, open the modal 
     stuSignBtn.onclick = function () {
         stuSignUp.style.display = "block";
