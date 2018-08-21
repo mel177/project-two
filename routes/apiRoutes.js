@@ -11,8 +11,8 @@ module.exports = function(router) {
     }).then(function(dbTutors) {
       //res.json(dbTutors)
       //res.render('results', dbTutors);
-
-      res.render("results", { tutor: dbTutors }); 
+      console.log(dbTutors[0])
+      res.render("results", { tutor: dbTutors[0].dataValues }); 
     });
   });
 
