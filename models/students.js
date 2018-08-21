@@ -19,14 +19,7 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING,
         allowNull: false
         },
-      phone: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        },
-      subjects: {
-            type: DataTypes.STRING,
-            allowNull: false
-        }
+      
       }, {
         classMethods: {
           associate: function(models) {
