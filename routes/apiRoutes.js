@@ -17,28 +17,30 @@ module.exports = function(router) {
   });
 
   // Create a new tutor with the data available to us in req.body from the sign up page
-  router.post("/create", function(req, res) {
+  router.post("/api/tutors", function(req, res) {
     //console.log(req.body);
     db.Tutor.create({
       name: req.body.name,
+      email: req.body.email,
       username: req.body.username,
-      password: req.body.password,
+      password: req.body.psw,
       bio: req.body.bio,
       phonenumber: req.body.number,
-      subject: req.body.subject
-    }).then(function(dbTutor) {
-      res.json(dbTutor);
+      subjects: req.body.subject
+    }).then(function(newTutor) {
+      console.log(newTutor);
+      res.render("tutprprofile", {tutor: newTutor})
     });
   });
   // Signs up a student
-  router.post("/api/create/students", function(req, res) {
+  router.post("/api/students", function(req, res) {
     db.Student.create({
       name: req.body.name,
-      email: req.body.email,
       username: req.body.username,
       password: req.body.psw
     }).then(function(newStudent) {
       console.log(newStudent);
+      res.render("studentprofile", {student: newStudent})
     });
   });
   //router.put("api/students/:id", function (req, res))

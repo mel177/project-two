@@ -3,8 +3,10 @@ var db = require("../models");
 // Routes
 // =============================================================
 module.exports = function(app) {
-
+  app.get("/", function(req, res) {
+    res.render("index");
   });
+  
 
   app.get("/results", function(req, res) {
     db.Tutor.findAll({
@@ -30,22 +32,7 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/profiles", function(req, res) {
-    db.tutor.findAll({}).then(function(data) {
-      var hbsObject = {
-        tutor: data
-      };
-      res.render("profiles", hbsObject);
-    });
-  });
 
-
-      var hbsObject = {
-        tutor: data
-      };
-      res.render("appointment", hbsObject);
-    });
-  });
 
   app.put("/appointment/:id", function(req, res) {
     db.tutor
