@@ -1,201 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Better Brains</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Better Brains</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.0-rc.2/dist/css/foundation.min.css" integrity="sha256-iJQ8dZac/jUYHxiEnZJsyVpKcdq2sQvdA7t02QFmp30= sha384-SplqNBo/0ZlvSdwrP/riIPDozO5ck8+yIm++KVqyMAC53S6m3BaV+2OLpi7ULOOh sha512-ho6hK4sAWdCeqopNZWNy1d9Ok2hzfTLQLcGSr8ZlRzDzh6tNHkVoqSl6wgLsqls3yazwiG9H9dBCtSfPuiLRCQ=="
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="/assets/styles/styles.css">
-</head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.0-rc.2/dist/css/foundation.min.css" integrity="sha256-iJQ8dZac/jUYHxiEnZJsyVpKcdq2sQvdA7t02QFmp30= sha384-SplqNBo/0ZlvSdwrP/riIPDozO5ck8+yIm++KVqyMAC53S6m3BaV+2OLpi7ULOOh sha512-ho6hK4sAWdCeqopNZWNy1d9Ok2hzfTLQLcGSr8ZlRzDzh6tNHkVoqSl6wgLsqls3yazwiG9H9dBCtSfPuiLRCQ=="
+            crossorigin="anonymous">
+        <link rel="stylesheet" href="./assets/styles/styles.css">
+    </head>
 
-<body>
-    <div class="container">
-        <header>
-            <div class="top-bar">
-                <div class="top-bar-left">
-                    <img id="logo" src="/imgs/logo.png">
-                    <div class="title">
-                        <p>Better Brains</p>
-                    </div>
-                </div>
-                <div class="top-bar-right">
-
-                    <a href="#" id="loginBtn" data-open="modal1">Login</a>
-                    <div id="loginModal" class="modal">
-                        <div class="modal-content">
-                            <span class="close">&times;</span>
-
-                            <form action="action_page.php" id="loginForm">
-
-                                <div class="loginContainer">
-                                    <h2>Log In</h2>
-                                    <hr>
-                                    <label for="uname">
-                                        <b>Username</b>
-                                    </label>
-                                    <input type="text" placeholder="Enter Username" name="uname" required>
-
-                                    <label for="psw">
-                                        <b>Password</b>
-                                    </label>
-                                    <input type="password" placeholder="Enter Password" name="psw" required>
-
-                                    <button type="submit">Login</button>
-                                    <label>
-                                        <input type="checkbox" checked="checked" name="remember"> Remember me
-                                    </label>
-                                </div>
-                            </form>
-
+    <body>
+        <div class="container">
+            <header>
+                <div class="top-bar position-top">
+                    <div class="top-bar-left">
+                        <img id="logo" src="assets/img/logo.png">
+                        <div class="title">
+                            <p>Better Brains</p>
                         </div>
                     </div>
+                    <div class="top-bar-right">
 
-                    <a href="#" id="stu-signupBtn" data-open="modal1">Student Sign Up</a>
-                    <div id="stu-signupModal" class="modal">
-                        <div class="modal-content">
-                            <span class="close">&times;</span>
+                        <a href="#" id="loginBtn" data-open="modal1">Login</a>
+                        <div id="loginModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
 
-                            <form action="/api/students" method="POST" style="border:1px solid #ccc">
-                                <div class="formContainer">
-                                    <h2>Sign Up As A Student</h2>
-                                    <hr>
+                                <form action="action_page.php" id="loginForm">
 
-                                    <label for="name">
-                                        <b>Name</b>
-                                    </label>
-                                    <input type="text" placeholder="Enter Name" name="name" required>
+                                    <div class="loginContainer">
+                                        <h2>Log In</h2>
+                                        <hr>
+                                        <label for="uname">
+                                            <b>Username</b>
+                                        </label>
+                                        <input type="text" placeholder="Enter Username" name="uname" required>
 
-                                    <label for="email">
-                                        <b>Email</b>
-                                    </label>
-                                    <input type="text" placeholder="Enter Email" name="email" required>
+                                        <label for="psw">
+                                            <b>Password</b>
+                                        </label>
+                                        <input type="password" placeholder="Enter Password" name="psw" required>
 
-                                    <label for="psw">
-                                        <b>Password</b>
-                                    </label>
-                                    <input type="password" placeholder="Enter Password" name="psw" required>
-
-                                    <label for="psw-repeat">
-                                        <b>Repeat Password</b>
-                                    </label>
-                                    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-
-                                    <label>
-                                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-                                    </label>
-
-                                    <p>By creating an account you agree to our
-                                        <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-
-                                    <div class="clearfix">
-                                        <button type="button" class="cancelbtn">Cancel</button>
-                                        <button type="submit" class="signupbtn">Sign Up</button>
+                                        <button type="submit">Login</button>
+                                        <label>
+                                            <input type="checkbox" checked="checked" name="remember"> Remember me
+                                        </label>
                                     </div>
-                                </div>
-                            </form>
+                                </form>
+
+                            </div>
                         </div>
-                    </div>
 
-                    <a href="#" id="tut-signupBtn" data-open="modal1">Tutor Sign Up</a>
-                    <div id="tut-signupModal" class="modal">
-                        <div class="modal-content">
-                            <span class="close">&times;</span>
+                        <a href="#" id="stu-signupBtn" data-open="modal1">Student Sign Up</a>
+                        <div id="stu-signupModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
 
-                            <form action="/api/tutors" method="POST" style="border:1px solid #ccc">
-                                <div class="formContainer">
-                                    <h2>Sign Up As A Tutor</h2>
-                                    <hr>
+                                <form action="/api/students" method="POST" style="border:1px solid #ccc">
+                                    <div class="formContainer">
+                                        <h2>Sign Up As A Student</h2>
+                                        <hr>
 
-                                    <label for="name">
-                                        <b>Name</b>
-                                    </label>
-                                    <input type="text" placeholder="Enter Name" name="name" required>
+                                        <label for="name">
+                                            <b>Name</b>
+                                        </label>
+                                        <input type="text" placeholder="Enter Name" name="name" required>
 
-                                    <label for="subjects">
-                                        <b>Subjects</b>
-                                    </label>
-                                    <input type="text" placeholder="Enter Subjects That Apply" name="subject" required>
-                                    <input type="text" placeholder=". . .">
-                                    <input type="text" placeholder=". . .">
+                                        <label for="email">
+                                            <b>Email</b>
+                                        </label>
+                                        <input type="text" placeholder="Enter Email" name="email" required>
 
+                                        <label for="psw">
+                                            <b>Password</b>
+                                        </label>
+                                        <input type="password" placeholder="Enter Password" name="psw" required>
 
-                                    <label for="email">
-                                        <b>Email</b>
-                                    </label>
-                                    <input type="text" placeholder="Enter Email" name="email" required>
+                                        <label for="psw-repeat">
+                                            <b>Repeat Password</b>
+                                        </label>
+                                        <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
 
-                                    <label for="psw">
-                                        <b>Password</b>
-                                    </label>
-                                    <input type="password" placeholder="Enter Password" name="psw" required>
+                                        <label>
+                                            <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px">                                            Remember
+                                            me
+                                        </label>
 
-                                    <label for="psw-repeat">
-                                        <b>Repeat Password</b>
-                                    </label>
-                                    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+                                        <p>By creating an account you agree to our
+                                            <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
 
-                                    <label>
-                                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-                                    </label>
-
-                                    <p>By creating an account you agree to our
-                                        <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-
-                                    <div class="clearfix">
-                                        <button type="button" class="cancelbtn">Cancel</button>
-                                        <button type="submit" class="signupbtn">Sign Up</button>
+                                        <div class="clearfix">
+                                            <button type="button" class="cancelbtn">Cancel</button>
+                                            <button type="submit" class="signupbtn">Sign Up</button>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
+                        </div>
 
+                        <a href="#" id="tut-signupBtn" data-open="modal1">Tutor Sign Up</a>
+                        <div id="tut-signupModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+
+                                <form action="/api/tutors" method="POST" style="border:1px solid #ccc">
+                                    <div class="formContainer">
+                                        <h2>Sign Up As A Tutor</h2>
+                                        <hr>
+
+                                        <label for="name">
+                                            <b>Name</b>
+                                        </label>
+                                        <input type="text" placeholder="Enter Name" name="name" required>
+
+                                        <label for="subjects">
+                                            <b>Subjects</b>
+                                        </label>
+                                        <input type="text" placeholder="Enter Subjects That Apply" name="subject" required>
+                                        <input type="text" placeholder=". . .">
+                                        <input type="text" placeholder=". . .">
+
+
+                                        <label for="email">
+                                            <b>Email</b>
+                                        </label>
+                                        <input type="text" placeholder="Enter Email" name="email" required>
+
+                                        <label for="psw">
+                                            <b>Password</b>
+                                        </label>
+                                        <input type="password" placeholder="Enter Password" name="psw" required>
+
+                                        <label for="psw-repeat">
+                                            <b>Repeat Password</b>
+                                        </label>
+                                        <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+
+                                        <label>
+                                            <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px">                                            Remember
+                                            me
+                                        </label>
+
+                                        <p>By creating an account you agree to our
+                                            <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+                                        <div class="clearfix">
+                                            <button type="button" class="cancelbtn">Cancel</button>
+                                            <button type="submit" class="signupbtn">Sign Up</button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </header>
+            </header>
 
-        <main>
-            dive
-        </main>
-
-        <footer class="grid-container full">
-            <div class="grid-x grid-padding-x">
-                <div class="cell auto">
-                    <div class="footer-links" id="api-links">
-                        <h4>API Links</h4>
-                        <a href="">Tutors</a>
-                        <a href="">Students</a>
+            <main>
+                <div class="grid-container">
+                    <div class="grid-x grid-padding-x">
+                        <div class="cell clearfix">
+                            <img src="./assets/img/tutorimg.jpg" alt="profile" width="100" class="float-left"><h1 class="text-left">Jim Neutron</h1>
+                        </div>
+                        <div class="cell">
+                            <h3>Profile:</h3>
+                        </div>
                     </div>
                 </div>
-                <div class="cell auto">
-                    <div class="footer-links" id="created-by">
-                        <h4>Created By:</h4>
-                        <a href="https://github.com/prestonedwards3" target="blank">Preston</a>
-                        <a href="https://github.com/medwasfy" target="blank">Med</a>
-                        <a href="https://github.com/smpldvd" target="blank">David</a>
-                        <a href="https://github.com/RajBommala" target="blank">Raj</a>
-                        <a href="https://github.com/jscottwillems" target="blank">Josh</a>
-                        <a href="https://github.com/mel177" target="blank">Melinh</a>
+            </main>
+
+            <footer class="grid-container full position-bottom">
+                <div class="grid-x grid-padding-x">
+                    <div class="cell auto">
+                        <div class="footer-links" id="api-links">
+                            <h4>API Links</h4>
+                            <a href="">Tutors</a>
+                            <a href="">Students</a>
+                        </div>
+                    </div>
+                    <div class="cell auto">
+                        <div class="footer-links" id="created-by">
+                            <h4>Created By:</h4>
+                            <a href="https://github.com/prestonedwards3" target="blank">Preston</a>
+                            <a href="https://github.com/medwasfy" target="blank">Med</a>
+                            <a href="https://github.com/smpldvd" target="blank">David</a>
+                            <a href="https://github.com/RajBommala" target="blank">Raj</a>
+                            <a href="https://github.com/jscottwillems" target="blank">Josh</a>
+                            <a href="https://github.com/mel177" target="blank">Melinh</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <hr>
-            <div class="grid-x grid-padding-x">
+                <div class="cell">
+                    <hr class="full">
+                </div>
                 <div class="cell">
                     <p id="copy">&copy;Copyright 2018 Better Brains</p>
                 </div>
-            </div>
-        </footer>
-    </div>
+            </footer>
+        </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.0-rc.2/dist/js/foundation.min.js" integrity="sha256-G6jsRyH1fxbsvFIXSCuwYmI1aIDYBa28xscrvmYjJy0=sha384-vtoG68NvPc9azmFJr447vvY8qgdyA4FdaJ5/bqvzIM4eAdZfO0iyRRF8l2AAscYIsha512-43seCcNrHA0BQgrtyajB9sp8yOdv5c8QdYvgjP7zJ7v+dmzAcxYDQ2gupb9aztsNWBq1COIp/3NHYkQs4l/dkg=="
-        crossorigin="anonymous"></script>
-    <script src="assets/js/index.js"></script>
-    <script src="assets/js/modal.js"></script>
-</body>
+        <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.0-rc.2/dist/js/foundation.min.js" integrity="sha256-G6jsRyH1fxbsvFIXSCuwYmI1aIDYBa28xscrvmYjJy0=sha384-vtoG68NvPc9azmFJr447vvY8qgdyA4FdaJ5/bqvzIM4eAdZfO0iyRRF8l2AAscYIsha512-43seCcNrHA0BQgrtyajB9sp8yOdv5c8QdYvgjP7zJ7v+dmzAcxYDQ2gupb9aztsNWBq1COIp/3NHYkQs4l/dkg=="
+            crossorigin="anonymous"></script>
+        <script src="assets/js/index.js"></script>
+        <script src="assets/js/modal.js"></script>
+    </body>
 
 </html>

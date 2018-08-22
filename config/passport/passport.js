@@ -86,12 +86,12 @@ module.exports = function(passport, user) {
               });
             }
             return done(null, newUser);
-              }
+            }
             });
       }
         });
-  }
-  )
+  });
+
   // Passport strategy for logging user
   passport.use("local-signin", new LocalStrategy({
     // by default, local strategy uses username and password
@@ -100,13 +100,12 @@ module.exports = function(passport, user) {
     passwordField: "password",
         passReqToCallback: true
   },
-
   function (req, email, password, done) {
-        var User = models.User;
+    var User = models.User;
     var passCheck = function (userpass, password) {
       return bCrypt.compareSync(password, userpass);
-        };
-        User.findOne({
+    };
+    User.findOne({
       where: {
         email: email
       }
@@ -117,23 +116,22 @@ module.exports = function(passport, user) {
           message: "Email does not exist"
         });
       }
-            if (!passCheck(user.password, password)) {
+      if (!passCheck(user.password, password)) {
         console.log("invalid password");
         return done(null, false, {
           message: "Incorrect password."
-              });
-      }
+        });
+      };
+
       console.log("success");
-            var userinfo = user.get();
-            return done(null, userinfo);
-          })
-          .catch(function(err) {
-            console.log("Error:", err);
-            return done(null, false, {
+          var userinfo = user.get();
+          return done(null, userinfo);
+    }).catch(function(err) {
+      console.log("Error:", err);
+      return done(null, false, {
         message: "Check your login and try again !"
-            });
+      });
     });
-      }
-  )
-  );
+  })
+));
 };

@@ -230,6 +230,11 @@ footer {
   background: #1b1b1bf5;
 }
 
+footer.position-bottom {
+  position: absolute;
+  bottom: 250px;
+}
+
 .footer-links {
   margin: 30px;
 }
