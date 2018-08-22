@@ -57,7 +57,7 @@ body {
 
 .modal {
   display: none;
-  position: fixed;
+  position: absolute;
   z-index: 1;
   left: 0;
   top: 0;
@@ -72,14 +72,15 @@ body {
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
-  padding: 20px;
+  padding: 5px;
   border: 1px solid #888;
-  width: 700px;
+  width: 613px;
 }
 
 .close {
   color: #aaa;
   float: right;
+  margin-right: 15px;
   font-size: 28px;
   font-weight: bold;
 }
@@ -97,8 +98,94 @@ body {
   padding-top: 250px;
 }
 
+#sendBtn {
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tutor-card {
+  background: #f1f1f1f1;
+  padding: 30px;
+  width: 75%;
+  height: 175px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  border: 1px solid #888;
+  box-shadow: 4px 4px #202020b4;
+}
+
+.img-card {
+  display: block;
+  text-align: center;
+  float: left;
+  margin-top: -10px;
+}
+
+.tutor-img {
+  width: 120px;
+  box-shadow: 2px 2px #202020b4;
+  margin-bottom: 3px;
+}
+
+.subjects {
+  padding-right: 30px;
+  border-right: 1px solid #888;
+  float: left;
+  margin-left: 20px;
+  text-align: left;
+}
+
+.about {
+  width: 500px;
+  margin-left: 50px;
+  padding-right: 30px;
+  float: left;
+  border-right: 1px solid #888;
+  text-align: left;
+}
+
+.rating {
+  text-align: center;
+  float: left;
+  border-right: 1px solid #888;
+  width: 150px;
+  height: 116.8px;
+}
+
+.messageHead {
+  font-size: 24px;
+}
+
+#messageBox {
+  text-align: left;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#messageHR {
+  width: 80%;
+}
+
+#messageBtn {
+  width: 80px;
+  height: 50px;
+  padding: 3px;
+  float: right;
+  margin-top: 30px;
+  margin-right: 20px;
+}
+
+.loginContainer {
+  height: 350px;
+  text-align: center;
+  padding: 5px;
+}
+
 .sub-text {
-  font-family: 'Sub';
+  font-family: 'Fine';
   color: #ffb751;
   font-size: 30px;
   text-shadow: 2px 2px #202020;
@@ -184,10 +271,8 @@ form {
   src: url(../fonts/fineness.ttf) format('truetype');
 }
 
-
-
-
-input[type=text], input[type=password] {
+input[type=text],
+input[type=password] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -196,11 +281,14 @@ input[type=text], input[type=password] {
   background: #f1f1f1;
 }
 
-input[type=text]:focus, input[type=password]:focus {
+input[type=text]:focus,
+input[type=password]:focus {
   background-color: #ddd;
   outline: none;
 }
+
 /* Set a style for all buttons */
+
 button {
   background-color: #4CAF50;
   color: white;
@@ -213,30 +301,118 @@ button {
 }
 
 button:hover {
-  opacity:1;
+  opacity: 1;
 }
 
 /* Extra styles for the cancel button */
+
 .cancelbtn {
   padding: 14px 20px;
   background-color: #f44336;
 }
 
 /* Float cancel and signup buttons and add an equal width */
-.cancelbtn, .signupbtn {
+
+.cancelbtn,
+.signupbtn {
   float: left;
   width: 50%;
 }
 
 /* Add padding to container elements */
+
 .formContainer {
   padding: 16px;
   text-align: center;
 }
 
 /* Clear floats */
+
 .clearfix::after {
   content: "";
   clear: both;
   display: table;
+}
+
+/* Bordered form */
+
+#loginForm {
+  border: 3px solid #f1f1f1;
+}
+
+/* Full-width inputs */
+
+#loginForm input[type=text],
+input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+
+#loginForm button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Add a hover effect for buttons */
+
+#login Form button:hover {
+  opacity: 0.8;
+}
+
+/* Extra style for the cancel button (red) */
+
+#loginForm .cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the avatar image inside this container */
+
+#loginForm .imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+/* Avatar image */
+
+#loginForm img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+/* Add padding to containers */
+
+#loginForm .container {
+  padding: 16px;
+}
+
+/* The "Forgot password" text */
+
+#loginForm span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+
+@media screen and (max-width: 300px) {
+  #loginForm span.psw {
+    display: block;
+    float: none;
+  }
+  #loginForm .cancelbtn {
+    width: 100%;
+  }
 }

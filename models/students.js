@@ -6,18 +6,19 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
-        },
+      },
       name: {
         type: DataTypes.STRING,
-        allowNull: false,
-        },
+        allowNull: false
+      },
       username: {
-        type:DataTypes.STRING,
+        type: DataTypes.STRING
         //allowNull: false,
-        },
+      },
       password: {
         type: DataTypes.STRING,
         allowNull: false
+<<<<<<< HEAD
         },
 <<<<<<< HEAD
       phone: {
@@ -57,3 +58,24 @@ module.exports = function(sequelize, DataTypes) {
     return Students;
   
   };
+=======
+      }
+    },
+    {
+      classMethods: {
+        associate: function(models) {
+          Student.belongsTo(models.User, {
+            foreignKey: {
+              allowNull: false
+            }
+          });
+          Student.hasMany(models.Appointment, {
+            onDelete: "cascade"
+          });
+        }
+      }
+    }
+  );
+  return Student;
+};
+>>>>>>> 8f9f9a2b8f76b0dc97dc73696999b2e02cc5fdc3
