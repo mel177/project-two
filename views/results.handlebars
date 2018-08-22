@@ -142,9 +142,86 @@
     </div>
 </div>
 
-<div class="container">
+    <div class="container">
     <!-- Tutor cards will be displayed here -->
-    {{#each tutors}} {{> tutors/tutors-card}}
+    
+       {{#each tutor}}
+        
+<div class="tutor-card">
+            <div class="img-card">
+                <img class="tutor-img" src="../public/imgs/tutorimg.jpg">
+                <br>
+                <b>{{this.name}}</b>
+            </div>
+            <div class="subjects">
+                <b>Subjects</b>
+                <ul>
+                    <li>{{this.subjects}}</li>
+
+                </ul>
+            </div>
+            <div class="about">
+                <b>About</b>
+                <br>
+                <p>{{this.bio}}</p>
+            </div>
+            <div class="rating">
+                <b>Rating</b>
+                <br>
+                <br>
+                <p>{{this.ratings}}</p>
+            </div>
+            <button href="#" id="messageBtn" data-open="modal1">Message!</button>
+            <div id="messageModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+
+                    <div class="messageContainer">
+                        <br>
+                        <b class="messageHead">Send message to John Doe!</b>
+                        <hr id="messageHR">
+                        <label for="message">
+                            <b>Enter Message Below</b>
+                        </label>
+                        <textarea id="messageBox" name="message" rows="10" cols="50" form="messageForm">Why not ask when this tutor is available?
+                        </textarea>
+                        <button type="submit" id="sendBtn">Send</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS for modal -->
+    <script>
+        var message = document.getElementById('messageModal');
+        // Get the button that opens the modal
+        var messageBtn = document.getElementById("messageBtn");
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        // When the user clicks on the button, open the modal 
+        messageBtn.onclick = function () {
+            message.style.display = "block";
+        }
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            message.style.display = "none";
+        }
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == signUp) {
+                message.style.display = "none";
+            }
+        }
+    </script>
+
+     {{/each}}
+        
+   
+
+
+</div>
 
 </div>
 
