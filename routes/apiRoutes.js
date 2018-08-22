@@ -1,6 +1,7 @@
 var db = require("../models/");
 var router = require("express");
 var router = router.Router();
+
 module.exports = function(router) {
   router.post("/results", function(req, res) {
     console.log(req.body.subject);
