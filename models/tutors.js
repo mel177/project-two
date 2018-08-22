@@ -28,6 +28,10 @@ module.exports = function(sequelize, DataTypes) {
         bio: {
             type: DataTypes.TEXT
         },
+        photo: { <--------------------------- Image
+            type: DataTypes.BLOB,
+          },
+    
         ratings: {
             type: DataTypes.INTEGER
         },
