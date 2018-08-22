@@ -14,7 +14,7 @@ module.exports = function(sequelize, DataTypes) {
         username: {
 
             type: DataTypes.STRING,
-            allowNull: false,
+            //allowNull: false,
         },
         password: {
             type: DataTypes.STRING,
@@ -28,6 +28,10 @@ module.exports = function(sequelize, DataTypes) {
         bio: {
             type: DataTypes.TEXT
         },
+        photo: {
+            type: DataTypes.BLOB,
+          },
+    
         ratings: {
             type: DataTypes.INTEGER
         },
