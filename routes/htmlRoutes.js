@@ -6,7 +6,6 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     res.render("index");
   });
-  
 
   app.get("/results", function(req, res) {
     db.Tutor.findAll({
@@ -32,15 +31,13 @@ module.exports = function(app) {
     });
   });
 
-
-
   app.put("/appointment/:id", function(req, res) {
     db.tutor
       .update(
         {
-            available: req.body.available
+          available: req.body.available
         },
-            {
+        {
           where: {
             id: req.params.id
           }
@@ -63,10 +60,10 @@ module.exports = function(app) {
   app.put("/cancel/:id", function(req, res) {
     db.User.update(
       {
-          available: req.body.available
-        },
+        available: req.body.available
+      },
       {
-          where: {
+        where: {
           id: req.params.id
         }
       }
@@ -91,9 +88,9 @@ module.exports = function(app) {
     db.tutor
       .update(
         {
-            available: req.body.available
-          },
-            {
+          available: req.body.available
+        },
+        {
           where: {
             id: req.params.id
           }

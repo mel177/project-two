@@ -3,7 +3,7 @@
 }
 
 body {
-  background: url("../imgs/background.jpg") no-repeat center center fixed;
+  background: url("../img/background.jpg") no-repeat center center fixed;
   background-size: cover;
   font-family: 'Fine';
 }
@@ -222,10 +222,9 @@ form {
   background: #253829;
 }
 
-.footer {
+footer {
   text-align: center;
-  height: 400px;
-  padding-top: 50px;
+  padding: 20px 0;
   margin-bottom: 0px;
   color: white;
   background: #1b1b1bf5;
@@ -235,7 +234,7 @@ form {
   margin: 30px;
 }
 
-.footer a {
+footer a {
   text-align: center;
   display: inline-block;
   border-right: solid 1.5px;
@@ -244,16 +243,16 @@ form {
   color: #fdc15b;
 }
 
-.footer a:hover {
+footer a:hover {
   color: #ce913c;
 }
 
-.footer a:last-child {
+footer a:last-child {
   border-right: none;
 }
 
 #copy {
-  margin-top: 80px;
+  margin-top: 20px;
 }
 
 @font-face {

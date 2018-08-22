@@ -2,7 +2,7 @@ var db = require("../models/");
 var router = require("express");
 var router = router.Router();
 module.exports = function(router) {
-  router.post("/results", function(req, res){
+  router.post("/results", function(req, res) {
     console.log(req.body.subject);
     db.Tutor.findAll({
       where: {
@@ -11,8 +11,8 @@ module.exports = function(router) {
     }).then(function(dbTutors) {
       //res.json(dbTutors)
       //res.render('results', dbTutors);
-      console.log(dbTutors[0])
-      res.render("results", { tutor: dbTutors}); 
+      console.log(dbTutors[0]);
+      res.render("results", { tutor: dbTutors });
     });
   });
 
@@ -29,7 +29,7 @@ module.exports = function(router) {
       subjects: req.body.subject
     }).then(function(newTutor) {
       console.log(newTutor);
-      res.render("tutorprofile", {tutor: newTutor})
+      res.render("tutorprofile", { tutor: newTutor });
     });
   });
   // Signs up a student
@@ -40,7 +40,7 @@ module.exports = function(router) {
       password: req.body.psw
     }).then(function(newStudent) {
       console.log(newStudent);
-      res.render("studentprofile", {student: newStudent})
+      res.render("studentprofile", { student: newStudent });
     });
   });
   //router.put("api/students/:id", function (req, res))
