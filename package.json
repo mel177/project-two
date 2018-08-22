@@ -18,12 +18,9 @@
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
-<<<<<<< HEAD
     "express-session": "^1.15.6",
     "firebaseui": "^3.3.0",
     "http": "0.0.0",
-=======
->>>>>>> aebb011005cf01271d0aad9c417268d0c426496f
     "mysql": "^2.16.0",
     "mysql2": "^1.5.3",
     "nodemon": "^1.18.3",
