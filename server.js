@@ -2,8 +2,8 @@ require("dotenv").config();
 var express = require("express");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
-var firebase = require('firebase');
-var firebaseui = require('firebaseui');
+// var firebase = require('firebase');
+// var firebaseui = require('firebaseui');
 
 var db = require("./models");
 
