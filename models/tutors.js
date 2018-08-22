@@ -39,10 +39,7 @@ module.exports = function(sequelize, DataTypes) {
         availability: {
             type: DataTypes.STRING
         },
-        email: {
-            type: DataTypes.STRING,
-            allowNull: false
-                    } 
+        
     }, {
         classMethods: {
             associate: function(models) {
