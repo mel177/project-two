@@ -32,20 +32,47 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.INTEGER
       },
 
-      availability: {
-        type: DataTypes.STRING
-      },
-      email: {
-        type: DataTypes.STRING,
-        allowNull: false
-      }
-    },
-    {
-      classMethods: {
-        associate: function(models) {
-          Tutor.belongsTo(models.User, {
-            foreignKey: {
-              allowNull: false
+            type: DataTypes.STRING,
+            //allowNull: false,
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false
+          },
+        
+        subjects: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        bio: {
+            type: DataTypes.TEXT
+        },
+        photo: { <--------------------------- Image
+            type: DataTypes.BLOB,
+          },
+    
+        ratings: {
+            type: DataTypes.INTEGER
+        },
+        
+        availability: {
+            type: DataTypes.STRING
+        },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false
+                    } 
+    }, {
+        classMethods: {
+            associate: function(models) {
+                Tutor.belongsTo(models.User, {
+                    foreignKey: {
+                        allowNull: false
+                    }
+                });
+                Tutor.hasMany(models.Appointment, {
+                    onDelete: "cascade"
+                });
             }
           });
           Tutor.hasMany(models.Appointment, {
