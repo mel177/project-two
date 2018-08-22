@@ -68,7 +68,7 @@ body {
 }
 
 .modal-content {
-  background-color: #fefefe;
+  background: #f1f1f1;
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
@@ -114,6 +114,7 @@ body {
   margin-bottom: 30px;
   border: 1px solid #888;
   box-shadow: 4px 4px #202020b4;
+  display: block;
 }
 
 .img-card {
@@ -137,6 +138,7 @@ body {
   margin-left: 20px;
   text-align: left;
   font-size: .9em;
+  height: 116.8px;
 }
 
 .about {
@@ -182,6 +184,10 @@ body {
   margin-top: 30px;
   margin-left: 50px;
   font-size: .8em;
+}
+
+.messageContainer {
+  background: #f1f1f1;
 }
 
 .loginContainer {
