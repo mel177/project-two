@@ -9,7 +9,7 @@ INSERT INTO Tutors(name, username, photo, password, subjects, bio, ratings)
 VALUES("Elizardbeth Hurley", "Ehurlee", "https://static.makeuseof.com/wp-content/uploads/2015/11/perfect-profile-picture-all-about-face.jpg","hur13y", "English", "Bachelor’s degree in Psychology from UCLA. SAT instructor.", 3);
 INSERT INTO Tutors(name, username, photo, password, subjects, bio, ratings)
 VALUES("Freddi Lozano", "Freedie", "http://mebfaber.com/wp-content/themes/mebfaber-v2/assets/img/mebfaber-profile-square.jpg","frelo", "Statistics", "Math instructor for pre-college programs at Johns Hopkins University. Master's Degree in Mathematics from Villanova University.", 4);
-INSERT INTO Tutors(name, username,photo, password, subjects, bio, ratings)
+INSERT INTO Tutors(name, username, photo, password, subjects, bio, ratings)
 VALUES("Emily Long", "emlong", "https://images.unsplash.com/photo-1528914457842-1af67b57139d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ec93922b8cc28dcc1946fde53179225&w=1000&q=80","Emily!ong", "Algebra", "Bachelor’s degrees in Mathematics from University of Central Florida; minor in Statistics.", 4);
 
 INSERT INTO Tutors(name, username, photo, password, subjects, bio, ratings)
@@ -23,3 +23,4 @@ VALUES("Thomas Day", "Tday","zhttps://d2gg9evh47fn9z.cloudfront.net/800px_COLOUR
 INSERT INTO Tutors(name, username, photo, password, subjects, bio, ratings)
 VALUES("Nina Rodriguez", "NinaR","https://media.istockphoto.com/photos/asian-women-profile-picture-id139662784?k=6&m=139662784&s=612x612&w=0&h=GhwIW_Q3TIhdFgrVlbg7sMtLXzRNmaiLzKtjIQhX_sE=", "rodr1guez", "ESL", "Bachelor’s degree in English from Berkley.", 4);
 
+ 
