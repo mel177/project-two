@@ -32,20 +32,18 @@ module.exports = function(app) {
   });
 
   app.put("/appointment/:id", function(req, res) {
-    db.tutor
-      .update(
-        {
-          available: req.body.available
-        },
-        {
-          where: {
-            id: req.params.id
-          }
+    db.Tutor.update(
+      {
+        available: req.body.available
+      },
+      {
+        where: {
+          id: req.params.id
         }
-      )
-      .then(function(dbTutors) {
-        res.redirect("/cancel");
-      });
+      }
+    ).then(function(dbTutors) {
+      res.redirect("/cancel");
+    });
   });
 
   app.get("/cancel", function(req, res) {
@@ -73,31 +71,27 @@ module.exports = function(app) {
   });
 
   app.delete("/appointment/:id", function(req, res) {
-    db.tutor
-      .destroy({
-        where: {
-          id: req.params.id
-        }
-      })
-      .then(function(dbTutors) {
-        res.redirect("/delete");
-      });
+    db.Tutor.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbTutors) {
+      res.redirect("/delete");
+    });
   });
 
   app.put("/appointment/:id", function(req, res) {
-    db.tutor
-      .update(
-        {
-          available: req.body.available
-        },
-        {
-          where: {
-            id: req.params.id
-          }
+    db.Tutor.update(
+      {
+        available: req.body.available
+      },
+      {
+        where: {
+          id: req.params.id
         }
-      )
-      .then(function(dbTutors) {
-        res.redirect("/appointment");
-      });
+      }
+    ).then(function(dbTutors) {
+      res.redirect("/appointment");
+    });
   });
 };
