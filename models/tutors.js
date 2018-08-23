@@ -16,11 +16,17 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             //allowNull: false,
         },
+        
+        photo: {
+
+            type: DataTypes.STRING,
+        },
+
         password: {
             type: DataTypes.STRING,
             allowNull: false
-          },
-        
+        },
+
         subjects: {
             type: DataTypes.STRING,
             allowNull: false
@@ -29,13 +35,13 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.TEXT
         },
         photo: {
-            type: DataTypes.BLOB,
+            type: DataTypes.BLOB
           },
     
         ratings: {
             type: DataTypes.INTEGER
         },
-        
+
         availability: {
             type: DataTypes.STRING
         },
