@@ -28,7 +28,7 @@ module.exports = function(sequelize, DataTypes) {
         bio: {
             type: DataTypes.TEXT
         },
-        photo: { <--------------------------- Image
+        photo: {
             type: DataTypes.BLOB,
           },
     
