@@ -29,7 +29,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.TEXT
         },
         photo: {
-            type: DataTypes.BLOB,
+            type: DataTypes.BLOB
           },
     
         ratings: {
