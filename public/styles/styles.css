@@ -135,6 +135,7 @@ body {
   float: left;
   margin-left: 20px;
   text-align: left;
+  height: 116.8px;
 }
 
 .about {
@@ -144,6 +145,7 @@ body {
   float: left;
   border-right: 1px solid #888;
   text-align: left;
+  height: 116.8px;
 }
 
 .rating {

@@ -2,11 +2,23 @@ require("dotenv").config();
 var express = require("express");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
+var server = require('http').createServer();
+
 
 var db = require("./models");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
+
+
+var io = require('socket.io')(server);
+
+io.on('connection', function(){ console.log("a user connected") });
+
+server.listen(3002, function(){
+  console.log("Listening on 3002")
+});
+
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: false }));

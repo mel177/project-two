@@ -1,6 +1,5 @@
 var db = require("../models/");
-var router = require("express");
-var router = router.Router();
+
 module.exports = function(router) {
   router.post("/results", function(req, res){
     console.log(req.body.subject);
@@ -29,7 +28,7 @@ module.exports = function(router) {
       subjects: req.body.subject
     }).then(function(newTutor) {
       console.log(newTutor);
-      res.render("tutprprofile", {tutor: newTutor})
+      res.render("tutorprofile", {tutor: newTutor})
     });
   });
   // Signs up a student
@@ -43,7 +42,10 @@ module.exports = function(router) {
       res.render("studentprofile", {student: newStudent})
     });
   });
-  //router.put("api/students/:id", function (req, res))
+  router.put("api/tutors/:id", function (req, res){
+      db.Tutor.update({ }, { })
+  });
+
   /*
 //find specific tutor
   router.get("/api/tutors/:id", function(req, res) {
