@@ -22,14 +22,14 @@
         <br>
         <p>{{this.ratings}} / 10</p>
     </div>
-    <button href="#" class="messageBtn" data-open="modal1">Message!</button>
-    <div id="messageModal" class="modal">
+    <button href="#" class="messageBtn" data-open="modal1" data-name="{{this.name}}">Message!</button>
+    <div class="messageModal modal">
         <div class="modal-content">
             <span class="close">&times;</span>
 
             <div class="messageContainer">
                 <br>
-                <b class="messageHead">Send message to {{this.name}}</b>
+                <b class="messageHead" id="head"> </b>
                 <hr id="messageHR">
                 <label for="message">
                     <b>Enter Message Below</b>
@@ -61,6 +61,9 @@
     for (i = 0; i < buttons.length; i++) {
         buttons[i].addEventListener('click', function () {
             message.style.display = "block";
+            var messageId = document.getElementById('head');
+
+            messageId.innerHTML = "Send message to " + 
         }, false)
     }
 
