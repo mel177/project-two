@@ -34,6 +34,10 @@ module.exports = function (sequelize, DataTypes) {
         bio: {
             type: DataTypes.TEXT
         },
+        photo: {
+            type: DataTypes.BLOB
+          },
+    
         ratings: {
             type: DataTypes.INTEGER
         },
@@ -41,10 +45,7 @@ module.exports = function (sequelize, DataTypes) {
         availability: {
             type: DataTypes.STRING
         },
-        email: {
-            type: DataTypes.STRING,
-            allowNull: false
-        }
+
     }, {
         classMethods: {
             associate: function (models) {
