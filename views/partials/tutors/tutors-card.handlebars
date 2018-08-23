@@ -22,8 +22,8 @@
         <br>
         <p>{{this.ratings}} / 10</p>
     </div>
-    <button href="#" class="messageBtn" data-open="modal1" data-name="{{this.name}}">Message!</button>
-    <div class="messageModal modal">
+    <button href="#" class="messageBtn" data-open="modal1" data-name="{{this.name}}" data-id="{{this.id}}">Message!</button>
+    <div id="messageModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
 
@@ -62,8 +62,8 @@
         buttons[i].addEventListener('click', function () {
             message.style.display = "block";
             var messageId = document.getElementById('head');
-
-            messageId.innerHTML = "Send message to " + 
+            var name = this.getAttribute("data-name");
+            messageId.innerHTML = "Send message to " + name;
         }, false)
     }
 
