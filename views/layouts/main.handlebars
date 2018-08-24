@@ -29,7 +29,7 @@
           <form action="action_page.php" id="loginForm">
 
             <div class="loginContainer">
-              <h2>Log In</h2>
+              <h3>Log In</h3>
               <hr>
               <label for="uname">
                 <b>Username</b>
@@ -58,11 +58,11 @@
 
           <form action="/api/students" method="POST" style="border:1px solid #ccc">
             <div class="formContainer">
-              <h2>Sign Up As A Student</h2>
+              <h3>Sign Up As A Student</h3>
               <hr>
 
               <label for="name">
-                <b>Name</b>
+                <b>Username</b>
               </label>
               <input type="text" placeholder="Enter Name" name="name" required>
 
@@ -99,7 +99,7 @@
 
           <form action="/api/tutors" method="POST" style="border:1px solid #ccc">
             <div class="formContainer">
-              <h2>Sign Up As A Tutor</h2>
+              <h3>Sign Up As A Tutor</h3>
               <hr>
 
               <label for="name">
@@ -107,12 +107,21 @@
               </label>
               <input type="text" placeholder="Enter Name" name="name" required>
 
-              <label for="subjects">
-                <b>Subjects</b>
+              <label for="subject">
+                <b>Subject</b>
               </label>
-              <input type="text" placeholder="Enter Subjects That Apply" name="subject" required>
+              <input type="text" placeholder="Enter Subject" name="subject" required>
 
-              <textarea id="aboutBox" name="about" rows="10" cols="50">Add a brief description of yourself...
+              <label for="level">
+                <b>Select Study Level</b>
+              </label>
+              <select name="level" id="level">
+                <option value="college">College</option>
+                <option value="high">High School</option>
+                <option value="middle">Middle School</option>
+              </select>
+
+              <textarea id="aboutBox" name="about" rows="8" cols="20">Add a brief description of yourself...
                         </textarea>
 
               <label for="psw">
