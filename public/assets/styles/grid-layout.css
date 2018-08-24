@@ -1,0 +1,21 @@
+@media screen and (min-width: 992px) {
+  main.grid-container {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 0.5fr 1fr 1.5fr;
+  grid-template-rows: 0.5fr 1.3fr 1fr;
+  grid-gap: 1px 1px;
+  grid-template-areas: "profile bio bio" "calendar calendar calendar" "message message note";
+  }
+
+  .profile { grid-area: profile; }
+
+  .bio { grid-area: bio; }
+
+  .calendar { grid-area: calendar; }
+
+  .message { grid-area: message; }
+
+  .note { grid-area: note; }
+}
+
