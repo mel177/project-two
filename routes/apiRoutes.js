@@ -1,6 +1,11 @@
 var db = require("../models/");
-
+var passport = require('passport');
 module.exports = function(router) {
+// ============================================
+// authenticate
+router.get('/profile', passport.authenticationMiddleware(), renderProfile);
+
+// ============================================
   router.post("/results", function(req, res){
     console.log(req.body.subject);
     db.Tutor.findAll({
@@ -56,32 +61,22 @@ module.exports = function(router) {
     });
   });
   //find specific tutor
-router.get("/tutors/:username", function(req, res) {
-  db.Message.findAll({
-    where: {
-      to: req.params.username
-    }
-  }).then(function(messages) {
-    res.render("tutorprofile", {message: messages});
-  });
 
-});
-  /*
+
 
   
 
 //find specific student
-router.get("/api/students/:id", function(req, res) {
+router.get("/students/:username", function(req, res) {
 
   db.Student.findAll({
     where: {
-      id: req.params.id
+      username: req.body.uname
     }
   }).then(function(dbStudents) {
-    res.json(dbStudents);
+    console.log(dbStudents)
+    res.render("studentprofile", dbStudents);
   });
 })
-} 
-  
-*/
+
 };

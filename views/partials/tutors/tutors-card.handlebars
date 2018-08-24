@@ -1,21 +1,67 @@
-<ul>
-    {{#each tutor}}
-        <li>
-            <div class="card">
-                <img src="tutoravi.png" alt="tutor"  class="tutoravi">
-                <h1>{{this.tutorName}}</h1>
-                <p class="title">{{this.tutorSub}}</p>
-                <p>{{this.bio}}</p>
-                <p>{{this.rating}}</p>
+<div class="tutor-card">
+    <div class="img-card">
+        <img class="tutor-img" src="{{this.photo}}">
+        <br>
+        <b>{{this.name}}</b>
+    </div>
+    <div class="subjects">
+        <b>Subjects</b>
+        <ul>
+            <li>{{this.subjects}}</li>
 
-                <p><button class="contact">Contact</button></p>
+        </ul>
+    </div>
+    <div class="about">
+        <b>About</b>
+        <br>
+        <p>{{this.bio}}</p>
+    </div>
+    <div class="rating">
+        <b>Rating</b>
+        <br>
+        <br>
+        <p>{{this.ratings}} / 10</p>
+    </div>
+    <button href="#" class="messageBtn" data-open="modal1" data-name="{{this.name}}" data-username="{{this.username}}" data-id="{{this.id}}">Message!</button>
+    <div id="messageModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+
+            <div class="messageContainer">
+                <br>
+                <b class="messageHead" id="head"> </b>
+                <hr id="messageHR">
+                <label for="message">
+                    <b>Enter Message Below</b>
+                </label>
+                <form action="/messages/{{this.username}}" method="POST"> 
+                <textarea id="messageBox" name="message" rows="10" cols="50" placeholder="Why not ask when this tutor is available?"></textarea>
+                <button type="submit" id="sendBtn">Send</button>
+                </form>
             </div>
-        </li>
-    {{/each}}
-</ul>
 
+        </div>
+    </div>
+</div>
+</div>
 
-    {{!-- for (i = 0; i < buttons.length; i++) {
+<script>
+    var message = document.getElementById('messageModal');
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close");
+
+    var buttons = document.getElementsByClassName("messageBtn");
+
+    var send = document.getElementsByClassName("sendBtn");
+
+    for (i = 0; i < span.length; i++) {
+        span[i].addEventListener('click', function () {
+            message.style.display = "none";
+        }, false)
+    }
+
+    for (i = 0; i < buttons.length; i++) {
         buttons[i].addEventListener('click', function () {
             message.style.display = "block";
             var messageId = document.getElementById('head');
@@ -23,4 +69,11 @@
             messageId.innerHTML = "Send message to " + name;
         }, false)
     }
- --}}
+
+    for (i = 0; i < send.length; i++) {
+        send[i].addEventListener("click", function (event) {
+            event.preventDefault();
+
+        })
+    }
+</script>

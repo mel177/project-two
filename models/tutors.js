@@ -1,5 +1,5 @@
-module.exports = function(sequelize, DataTypes) {
-    var Tutors = sequelize.define("Tutors", {
+module.exports = function (sequelize, DataTypes) {
+    var Tutor = sequelize.define("Tutor", {
 
         id: {
             type: DataTypes.INTEGER,
@@ -45,21 +45,20 @@ module.exports = function(sequelize, DataTypes) {
         availability: {
             type: DataTypes.STRING
         },
-        email: {
-            type: DataTypes.STRING,
-            allowNull: false
-                    } 
-    });
 
-    Tutors.associate = function(models) {
-        Tutors.hasMany(models.Students, {
-            foreignKey: {
-                allowNull: false
+    }, {
+        classMethods: {
+            associate: function (models) {
+                Tutor.belongsTo(models.User, {
+                    foreignKey: {
+                        allowNull: false
+                    }
+                });
+                Tutor.hasMany(models.Appointment, {
+                    onDelete: "cascade"
+                });
             }
-        });
-        Tutors.hasMany(models.Appointments, {
-            onDelete: "cascade"
-        });
-    };
-    return Tutors;
+        }
+    });
+    return Tutor;
 };

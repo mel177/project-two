@@ -1,6 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
-
-    var Students = sequelize.define("Students", {
+  var Student = sequelize.define(
+    "Student",
+    {
       id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -18,28 +19,22 @@ module.exports = function(sequelize, DataTypes) {
       password: {
         type: DataTypes.STRING,
         allowNull: false
-        },
-      phone: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        },
-      subjects: {
-            type: DataTypes.STRING,
-            allowNull: false
+      }
+    },
+    {
+      classMethods: {
+        associate: function(models) {
+          Student.belongsTo(models.User, {
+            foreignKey: {
+              allowNull: false
+            }
+          });
+          Student.hasMany(models.Appointment, {
+            onDelete: "cascade"
+          });
         }
-      });
-
-    Students.associate = function(models) {
-      Students.belongsTo(models.Tutors, {
-        foreignKey: {
-          allowNull: false
-          }
-        });
-      Students.hasMany(models.Appointments, {
-        onDelete: "cascade"
-        });
-    }; 
-    return Students;
-  };
-  
-
+      }
+    }
+  );
+  return Student;
+};
