@@ -13,11 +13,11 @@ module.exports = function(app) {
         subjects: req.body.subject
       }
     }).then(function(dbTutors) {
-      // console.log(req);
+      console.log(req.body);
       // //res.json(dbTutors)
       // //res.render('results', dbTutors);
       // console.log(dbTutors);
-      var tutor = {
+      var tutorData = {
         tutorName: dbTutors.name,
         tutorUsername: dbTutors.username,
         tutorSub: dbTutors.subjects,
@@ -27,7 +27,7 @@ module.exports = function(app) {
       console.log(tutor);
       // res.render("results", tutor);
       console.log("this does something");
-      res.render("results", tutor);
+      res.render("results", { tutor: tutorData });
     });
   });
 

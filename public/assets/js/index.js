@@ -8,15 +8,14 @@ var $exampleList = $("#example-list");
 
 // home search functionailty
 // $("#search").on('click',function(e){
-  // e.preventDefault();
- // console.log("SEARCH FIRED!")
- // var searchData ={
- //   subject:$("#subject").val().trim()
+// e.preventDefault();
+// console.log("SEARCH FIRED!")
+// var searchData ={
+//   subject:$("#subject").val().trim()
 
- //  };
-$.GET('/api/tutors',searchData, function(data){})
+//  };
+// $.GET("/api/tutors", searchData, function(data) {});
 
-})
 var API = {
   saveExample: function(example) {
     return $.ajax({
@@ -109,4 +108,3 @@ var handleDeleteBtnClick = function() {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
-

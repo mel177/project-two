@@ -16,41 +16,7 @@
 
 <main class="grid-container">
     <div class="profile">
-        <div class="card photo">
-            <img src="./assets/img/tutorimg.jpg" alt="profile" width="150px" style="margin-bottom: -50px">
-            <button class="photo-btn" style="width: 35px">+</button>
-            <h5>John Smith</h5>
-        </div>
-    </div>
-    <div class="bio">
-        <div class="card">
-            <div class="grid-x">
-                <div class="cell medium-1 text-right">
-                    <h6>Bio:</h6>
-                </div>
-                <div class="cell medium-4 text-left">
-                    <p>Illo natus laboriosam iusto veritatis dolor qui similique nobis. Ipsam reprehenderit reiciendis officia
-                        excepturi, aliquam eligendi aut, voluptas nulla magnam officiis nihil.
-                    </p>
-                </div>
-                <div class="cell medium-2 text-right">
-                    <h6>Knowledgeable in:</h6>
-                </div>
-                <div class="cell medium-2 text-left">
-                    <ul>
-                        <li>Math</li>
-                        <li>Science</li>
-                        <li>Geology</li>
-                    </ul>
-                </div>
-                <div class="cell medium-1 text-right">
-                    <h6>Rating:</h6>
-                </div>
-                <div class="cell medium-1 text-left">
-                    <p>8.6/10</p>
-                </div>
-            </div>
-        </div>
+        {{> tutors/tutors-profile}}
     </div>
     <div class="calendar">
         <div class="card">
@@ -166,6 +132,7 @@
                         </div>
                     </div>
                     {{#each}}
+                    {{/each}}
                 </div>
             </div>
         </div>

@@ -1,0 +1,36 @@
+<div class="card photo">
+    <img src="./assets/img/tutorimg.jpg" alt="profile" width="150px" style="margin-bottom: -50px">
+    <button class="photo-btn" style="width: 35px">+</button>
+    <h5>{{tutor.name}}</h5>
+</div>
+<div class="bio">
+    <div class="card">
+        <div class="grid-x">
+            <div class="cell medium-1 text-right">
+                <h6>Bio:</h6>
+            </div>
+            <div class="cell medium-4 text-left">
+                <p>{{tutor.bio}}
+                </p>
+            </div>
+            <div class="cell medium-2 text-right">
+                <h6>Knowledgeable in:</h6>
+            </div>
+            <div class="cell medium-2 text-left">
+                <ul>
+                    {{#each tutor.subjects}}
+                    <li>Math</li>
+                    <li>Science</li>
+                    <li>Geology</li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="cell medium-1 text-right">
+                <h6>Rating:</h6>
+            </div>
+            <div class="cell medium-1 text-left">
+                <p>{{tutor.rating}}</p>
+            </div>
+        </div>
+    </div>
+</div>

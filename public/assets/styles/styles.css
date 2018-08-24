@@ -225,9 +225,9 @@ main div.cell {
   cursor: pointer;
 }
 
-div.container {
+main.display {
   text-align: center;
-  height: 650px;
+  height: 71vh;
   padding-top: 250px;
 }
 

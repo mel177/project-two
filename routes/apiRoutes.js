@@ -30,7 +30,7 @@ module.exports = function(router) {
       subjects: req.body.subject
     }).then(function(newTutor) {
       console.log(newTutor);
-      res.render("tutorprofile", { tutor: newTutor });
+      res.render("tutor", { tutor: newTutor });
     });
   });
   // Signs up a student
@@ -41,37 +41,35 @@ module.exports = function(router) {
       password: req.body.psw
     }).then(function(newStudent) {
       console.log(newStudent);
-      res.render("studentprofile", { student: newStudent });
+      res.render("profile", { student: newStudent });
     });
   });
   //router.put("api/students/:id", function (req, res))
   /*
-//find specific tutor
-  router.get("/api/tutors/:id", function(req, res) {
+  //find specific tutor
+    router.get("/api/tutors/:id", function(req, res) {
 
-    db.Tutor.findAll({
+      db.Tutor.findAll({
+        where: {
+          id: req.params.id
+        }
+      }).then(function(dbTodo) {
+        res.json(dbTodo);
+      });
+
+    });
+
+
+  //find specific student
+  router.get("/api/students/:id", function(req, res) {
+
+    db.Student.findAll({
       where: {
         id: req.params.id
       }
-    }).then(function(dbTodo) {
-      res.json(dbTodo);
+    }).then(function(dbStudents) {
+      res.json(dbStudents);
     });
-
-  });
-
-
-//find specific student
-router.get("/api/students/:id", function(req, res) {
-
-  db.Student.findAll({
-    where: {
-      id: req.params.id
-    }
-  }).then(function(dbStudents) {
-    res.json(dbStudents);
-  });
-})
-} 
-  
-*/
+  })
+  } */
 };
