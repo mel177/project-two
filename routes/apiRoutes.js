@@ -46,16 +46,13 @@ module.exports = function(router) {
       db.Tutor.update({ }, { })
   });
   router.post("/messages/:user", function(req, res){
-    console.log("USER FROM FRONT: ", req.params.user)
-    console.log("FORM DATA FRO FRONT: ", req.body.test)
-    console.log("FORM DATA FRO FRONT: ", req.body.message)
     db.Message.create({
       to: req.params.user,
       from: "student name",
       message: req.body.message
     }).then(function(newMessage) {
       console.log(newMessage);
-      res.render("tutorprofile") // need to figure out how to re display the results where they left off
+      res.redirect("/results") // need to figure out how to re display the results where they left off
     });
   });
   //find specific tutor
