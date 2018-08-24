@@ -1,6 +1,5 @@
 var db = require("../models/");
-var router = require("express");
-var router = router.Router();
+
 module.exports = function(router) {
   router.post("/results", function(req, res){
     console.log(req.body.subject);
@@ -43,21 +42,33 @@ module.exports = function(router) {
       res.render("studentprofile", {student: newStudent})
     });
   });
-  //router.put("api/students/:id", function (req, res))
-  /*
-//find specific tutor
-  router.get("/api/tutors/:id", function(req, res) {
-
-    db.Tutor.findAll({
-      where: {
-        id: req.params.id
-      }
-    }).then(function(dbTodo) {
-      res.json(dbTodo);
+  router.put("api/tutors/:id", function (req, res){
+      db.Tutor.update({ }, { })
+  });
+  router.post("/messages/:user", function(req, res){
+    db.Message.create({
+      to: req.params.user,
+      from: "student name",
+      message: req.body.message
+    }).then(function(newMessage) {
+      console.log(newMessage);
+      res.redirect("/results") // need to figure out how to re display the results where they left off
     });
-
+  });
+  //find specific tutor
+router.get("/tutors/:username", function(req, res) {
+  db.Message.findAll({
+    where: {
+      to: req.params.username
+    }
+  }).then(function(messages) {
+    res.render("tutorprofile", {message: messages});
   });
 
+});
+  /*
+
+  
 
 //find specific student
 router.get("/api/students/:id", function(req, res) {
