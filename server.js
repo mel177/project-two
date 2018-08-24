@@ -3,10 +3,18 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 
+
 var db = require("./models");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
+
+
+
+
+
+
+
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -32,8 +40,8 @@ var syncOptions = { force: false };
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
 if (process.env.NODE_ENV === "test") {
-  // true will make database reset, use false if u want to keep the db
-  syncOptions.force = false;
+// true will make database reset, use false if u want to keep the db
+  syncOptions.force = true;
 }
 
 // Starting the server, syncing our models ------------------------------------/

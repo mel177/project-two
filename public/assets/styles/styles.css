@@ -157,7 +157,7 @@ main div.cell {
 .title {
   color: #ffb751;
   font-family: 'Title';
-  font-size: 72px;
+  font-size: 500%;
   text-shadow: 4px 4px #202020b4;
 }
 
@@ -174,12 +174,12 @@ main div.cell {
 }
 
 #stu-signupBtn {
-  border-left: solid 2px;
+  border-left: solid 2px #fdc15b;
   padding-left: 5px;
 }
 
 #tut-signupBtn {
-  border-left: solid 2px;
+  border-left: solid 2px #fdc15b;
   padding-left: 5px;
 }
 
@@ -201,13 +201,32 @@ main div.cell {
 }
 
 .modal-content {
-  background: #f1f1f1;
+  background: #fffffff3;
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
   padding: 5px;
   border: 1px solid #888;
   width: 613px;
+}
+
+#level {
+  background: #f1f1f1;
+  width: 35%;
+  border: none;
+
+}
+
+textarea {
+  background: #f1f1f1;
+  width: 80%;
+  margin: auto;
+  color: #ccc;
+  resize: none;
+}
+
+textarea:focus {
+  color: #888;
 }
 
 .close {
@@ -231,16 +250,53 @@ main.display {
   padding-top: 250px;
 }
 
-#sendBtn {
+.cardContainer {
+  padding-top: 50px;
+}
+
+.sendBtn {
   width: 30%;
   margin-left: auto;
   margin-right: auto;
 }
 
+.sideBar {
+  position: fixed;
+  float: left;
+  padding: 15px;
+  margin-left: 3%;
+  text-align: center;
+  background: #43664b;
+  box-shadow: 4px 4px #202020b4;
+  height: auto;
+  width: 15%;
+  opacity: .5;
+}
+
+.sideBar:hover {
+  opacity: 1;
+}
+
+.sideLink {
+  display: block;
+  background: #2a3b2e62;
+  box-shadow: 2px 2px #202020b4;
+  padding: 4%; 
+  color: #ce913c;
+  margin: 3px auto;
+}
+
+.sideLink:hover {
+  text-decoration: none;
+  color: #ce913c;
+  background: #64806b62;
+  box-shadow: none;
+}
+
 .tutor-card {
   background: #f1f1f1f1;
   padding: 30px;
-  width: 65%;
+  width: 60%;
   height: 175px;
   margin-left: auto;
   margin-right: auto;
@@ -260,8 +316,10 @@ main.display {
 
 .tutor-img {
   width: 100%;
+  max-height: 100px;
   box-shadow: 2px 2px #202020b4;
   margin-bottom: 3px;
+ 
 }
 
 .subjects {
@@ -294,11 +352,15 @@ main.display {
   font-size: .9em;
 }
 
+#messageModal {
+  position: fixed;
+}
+
 .messageHead {
   font-size: 24px;
 }
 
-#messageBox {
+.messageBox {
   text-align: left;
   width: 85%;
   margin-left: auto;
@@ -309,7 +371,7 @@ main.display {
   width: 80%;
 }
 
-#messageBtn {
+.messageBtn {
   width: 8%;
   height: 50px;
   padding: 3px;
@@ -321,6 +383,7 @@ main.display {
 
 .messageContainer {
   background: #f1f1f1;
+  text-align: center;
 }
 
 .loginContainer {
@@ -500,13 +563,6 @@ input[type=password] {
   margin: 24px 0 12px 0;
 }
 
-/* Avatar image */
-
-#loginForm img.avatar {
-  width: 40%;
-  border-radius: 50%;
-}
-
 /* Add padding to containers */
 
 #loginForm .container {
@@ -518,6 +574,21 @@ input[type=password] {
 #loginForm span.psw {
   float: right;
   padding-top: 16px;
+}
+@media screen and (min-width: 992px) {
+  main.grid-container {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 0.5fr 1fr 1.5fr;
+  grid-template-rows: 0.5fr 1.3fr 1fr;
+  grid-gap: 1px 1px;
+  grid-template-areas: "profile bio bio" "calendar calendar calendar" "message message note";
+  }
+   .profile { grid-area: profile; }
+   .bio { grid-area: bio; }
+   .calendar { grid-area: calendar; }
+   .message { grid-area: message; }
+   .note { grid-area: note; }
 }
 
 /* Change styles for span and cancel button on extra small screens */
