@@ -11,6 +11,7 @@ body {
 .top-bar {
   background: #43664b;
   height: 110px;
+  box-shadow: 4px 4px #202020b4;
 }
 
 .top-bar-left {
@@ -29,7 +30,7 @@ body {
 .title {
   color: #ffb751;
   font-family: 'Title';
-  font-size: 72px;
+  font-size: 500%;
   text-shadow: 4px 4px #202020b4;
 }
 
@@ -62,19 +63,29 @@ body {
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%;
+  height: 100vmax;
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
-  background-color: #fefefe;
+  background: #fffffff3;
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
   padding: 5px;
   border: 1px solid #888;
   width: 613px;
+}
+
+textarea {
+  background: #f1f1f1;
+  color: #ccc;
+  resize: none;
+}
+
+textarea:focus {
+  color: #888;
 }
 
 .close {
@@ -98,35 +109,76 @@ body {
   padding-top: 250px;
 }
 
+.cardContainer {
+  padding-top: 50px;
+}
+
 #sendBtn {
   width: 30%;
   margin-left: auto;
   margin-right: auto;
 }
 
+.sideBar {
+  position: fixed;
+  float: left;
+  padding: 15px;
+  margin-left: 3%;
+  text-align: center;
+  background: #43664b;
+  box-shadow: 4px 4px #202020b4;
+  height: auto;
+  width: 15%;
+  opacity: .5;
+}
+
+.sideBar:hover {
+  opacity: 1;
+}
+
+.sideLink {
+  display: block;
+  background: #2a3b2e62;
+  box-shadow: 2px 2px #202020b4;
+  padding: 4%; 
+  color: #ce913c;
+  margin: 3px auto;
+}
+
+.sideLink:hover {
+  text-decoration: none;
+  color: #ce913c;
+  background: #64806b62;
+  box-shadow: none;
+}
+
 .tutor-card {
   background: #f1f1f1f1;
   padding: 30px;
-  width: 75%;
+  width: 60%;
   height: 175px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 30px;
   border: 1px solid #888;
   box-shadow: 4px 4px #202020b4;
+  display: block;
 }
 
 .img-card {
   display: block;
+  width: 10%;
   text-align: center;
   float: left;
-  margin-top: -10px;
+  margin-top: -3px;
 }
 
 .tutor-img {
-  width: 120px;
+  width: 100%;
+  max-height: 100px;
   box-shadow: 2px 2px #202020b4;
   margin-bottom: 3px;
+ 
 }
 
 .subjects {
@@ -135,25 +187,32 @@ body {
   float: left;
   margin-left: 20px;
   text-align: left;
+  font-size: .9em;
   height: 116.8px;
 }
 
 .about {
-  width: 500px;
+  width: 45%;
+  height: 116.8px;
   margin-left: 50px;
   padding-right: 30px;
   float: left;
   border-right: 1px solid #888;
   text-align: left;
-  height: 116.8px;
+  font-size: .9em;
 }
 
 .rating {
   text-align: center;
   float: left;
   border-right: 1px solid #888;
-  width: 150px;
+  width: 10%;
   height: 116.8px;
+  font-size: .9em;
+}
+
+#messageModal {
+  position: fixed;
 }
 
 .messageHead {
@@ -171,13 +230,19 @@ body {
   width: 80%;
 }
 
-#messageBtn {
-  width: 80px;
+.messageBtn {
+  width: 8%;
   height: 50px;
   padding: 3px;
-  float: right;
+  float: left;
   margin-top: 30px;
-  margin-right: 20px;
+  margin-left: 50px;
+  font-size: .8em;
+}
+
+.messageContainer {
+  background: #f1f1f1;
+  text-align: center;
 }
 
 .loginContainer {

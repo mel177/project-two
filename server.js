@@ -2,7 +2,6 @@ require("dotenv").config();
 var express = require("express");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
-var server = require('http').createServer();
 
 
 var db = require("./models");
@@ -11,13 +10,10 @@ var app = express();
 var PORT = process.env.PORT || 3000;
 
 
-var io = require('socket.io')(server);
 
-io.on('connection', function(){ console.log("a user connected") });
 
-server.listen(3002, function(){
-  console.log("Listening on 3002")
-});
+
+
 
 
 // Middleware
@@ -45,7 +41,7 @@ var syncOptions = { force: false };
 // clearing the `testdb`
 if (process.env.NODE_ENV === "test") {
 // true will make database reset, use false if u want to keep the db
-  syncOptions.force = false;
+  syncOptions.force = true;
 }
 
 // Starting the server, syncing our models ------------------------------------/

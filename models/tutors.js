@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
     var Tutor = sequelize.define("Tutor", {
 
         id: {
@@ -16,11 +16,17 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             //allowNull: false,
         },
+        
+        photo: {
+
+            type: DataTypes.STRING,
+        },
+
         password: {
             type: DataTypes.STRING,
             allowNull: false
-          },
-        
+        },
+
         subjects: {
             type: DataTypes.STRING,
             allowNull: false
@@ -28,20 +34,21 @@ module.exports = function(sequelize, DataTypes) {
         bio: {
             type: DataTypes.TEXT
         },
+        photo: {
+            type: DataTypes.BLOB
+          },
+    
         ratings: {
             type: DataTypes.INTEGER
         },
-        
+
         availability: {
             type: DataTypes.STRING
         },
-        email: {
-            type: DataTypes.STRING,
-            allowNull: false
-                    } 
+
     }, {
         classMethods: {
-            associate: function(models) {
+            associate: function (models) {
                 Tutor.belongsTo(models.User, {
                     foreignKey: {
                         allowNull: false
