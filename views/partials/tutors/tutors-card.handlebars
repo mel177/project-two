@@ -22,7 +22,7 @@
         <br>
         <p>{{this.ratings}} / 10</p>
     </div>
-    <button href="#" class="messageBtn" data-open="modal1" data-name="{{this.name}}" data-id="{{this.id}}">Message!</button>
+    <button href="#" class="messageBtn" data-open="modal1" data-name="{{this.name}}" data-username="{{this.username}}" data-id="{{this.id}}">Message!</button>
     <div id="messageModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -31,12 +31,13 @@
                 <br>
                 <b class="messageHead" id="head"> </b>
                 <hr id="messageHR">
-                <form action="/messages/{{this.username}}" method="POST">
-                    <label for="message">
-                        <b>Enter Message Below</b>
-                    </label>
-                    <textarea class="messageBox" name="message" rows="10" cols="50" placeholder="Why not ask when this tutor is available?"></textarea>
-                    <button type="submit" class="sendBtn">Send</button>
+                <label for="message">
+                    <b>Enter Message Below</b>
+                </label>
+                <form action="/messages/{{this.username}}" method="POST"> 
+                <textarea id="messageBox" name="message" rows="10" cols="50" placeholder="Why not ask when this tutor is available?"></textarea>
+                <button type="submit" id="sendBtn">Send</button>
+
                 </form>
             </div>
 
