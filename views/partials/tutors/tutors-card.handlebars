@@ -37,6 +37,7 @@
                 <form action="/messages/{{this.username}}" method="POST"> 
                 <textarea id="messageBox" name="message" rows="10" cols="50" placeholder="Why not ask when this tutor is available?"></textarea>
                 <button type="submit" id="sendBtn">Send</button>
+
                 </form>
             </div>
 
@@ -53,6 +54,8 @@
 
     var buttons = document.getElementsByClassName("messageBtn");
 
+    var send = document.getElementsByClassName("sendBtn");
+
     for (i = 0; i < span.length; i++) {
         span[i].addEventListener('click', function () {
             message.style.display = "none";
@@ -68,10 +71,10 @@
         }, false)
     }
 
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-        if (event.target == signUp) {
-            message.style.display = "none";
-        }
+    for (i = 0; i < send.length; i++) {
+        send[i].addEventListener("click", function (event) {
+            event.preventDefault();
+
+        })
     }
 </script>
