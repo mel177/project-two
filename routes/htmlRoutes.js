@@ -7,6 +7,10 @@ module.exports = function (app) {
     res.render("index");
   });
 
+  app.get("/faq", function (req, res) {
+    res.render("faq");
+  });
+
 
   app.get("/results", function (req, res) {
     db.Tutor.findAll({

@@ -447,6 +447,28 @@ input[type=password] {
   }
 }
 
+.faqsContainer {
+  width: 60%;
+  background: #f1f1f1e8;
+  margin: auto;
+  margin-top: -195px;
+  margin-bottom: 80px;
+  padding: 50px;
+  text-align: left;
+  font-size: 180%;
+}
+
+.faqsContainer h2 {
+  color: #ffb751;
+  text-shadow: 2px 2px #202020b4;
+  margin-left: 45%;
+}
+
+.faqsContainer b {
+  float: left;
+  margin-right: 10px;
+}
+
 .profile {
   background: #f1f1f1da;
   width: 60%;
