@@ -65,7 +65,7 @@ module.exports = function(router) {
   router.post("/messages/:user", function (req, res) {
 
     db.Message.create({
-      to: this.getdataAttribute('data-username'),
+      to: req.params.user,
       from: "student name",
       message: req.body.message
     }).then(function (newMessage) {
