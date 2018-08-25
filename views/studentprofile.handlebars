@@ -7,140 +7,199 @@
     </div>
     <div class="top-bar-right">
 
-        <a href="#" id="loginBtn" data-open="modal1">Login</a>
-        <div id="loginModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
+    <div class="profile">
 
-                <form action="action_page.php" id="loginForm">
-
-                    <div class="loginContainer">
-                        <h2>Log In</h2>
-                        <hr>
-                        <label for="uname">
-                            <b>Username</b>
-                        </label>
-                        <input type="text" placeholder="Enter Username" name="uname" required>
-
-                        <label for="psw">
-                            <b>Password</b>
-                        </label>
-                        <input type="password" placeholder="Enter Password" name="psw" required>
-
-                        <button type="submit">Login</button>
-                        <label>
-                            <input type="checkbox" checked="checked" name="remember"> Remember me
-                        </label>
-                    </div>
-                </form>
-
-            </div>
+        <div class="card photo">
+            <img src="/public/imgs/tutorimg.jpg" alt="profile">
+            <button class="photo-btn" style="width: 35px">+</button>
+            <h2>Jim Neutron</h2>
         </div>
 
-        <a href="#" id="stu-signupBtn" data-open="modal1">Student Sign Up</a>
-        <div id="stu-signupModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-
-                <form action="/api/students" method="GET" style="border:1px solid #ccc">
-                    <div class="formContainer">
-                        <h2>Sign Up As A Student</h2>
-                        <hr>
-
-                        <label for="name">
-                            <b>Name</b>
-                        </label>
-                        <input type="text" placeholder="Enter Name" name="name" required>
-
-                        <label for="email">
-                            <b>Email</b>
-                        </label>
-                        <input type="text" placeholder="Enter Email" name="email" required>
-
-                        <label for="psw">
-                            <b>Password</b>
-                        </label>
-                        <input type="password" placeholder="Enter Password" name="psw" required>
-
-                        <label for="psw-repeat">
-                            <b>Repeat Password</b>
-                        </label>
-                        <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-
-                        <label>
-                            <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember
-                            me
-                        </label>
-
-                        <p>By creating an account you agree to our
-                            <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-
-                        <div class="clearfix">
-                            <button type="button" class="cancelbtn">Cancel</button>
-                            <button type="submit" class="signupbtn">Sign Up</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+        <div class="bio">
+            <h6>Bio:</h6>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod praesentium perspiciatis quos possimus animi
+                explicabo impedit culpa ipsam dolorem a, exercitationem ad odit est et minima, ex nesciunt optio cum.
+            </p>
         </div>
 
-        <a href="#" id="tut-signupBtn" data-open="modal1">Tutor Sign Up</a>
-        <div id="tut-signupModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
+        <div class="calendar">
+            <header>
+                <h2>August</h2>
 
-                <form action="/api/tutors" method="GET" style="border:1px solid #ccc">
-                    <div class="formContainer">
-                        <h2>Sign Up As A Tutor</h2>
-                        <hr>
+                <a class="btn-prev fontawesome-angle-left" href="#"></a>
+                <a class="btn-next fontawesome-angle-right" href="#"></a>
+            </header>
 
-                        <label for="name">
-                            <b>Name</b>
-                        </label>
-                        <input type="text" placeholder="Enter Name" name="name" required>
+            <table>
 
-                        <label for="subjects">
-                            <b>Subjects</b>
-                        </label>
-                        <input type="text" placeholder="Enter Subjects That Apply" required>
-                        <input type="text" placeholder=". . .">
-                        <input type="text" placeholder=". . .">
+                <thead>
 
+                    <tr>
 
-                        <label for="email">
-                            <b>Email</b>
-                        </label>
-                        <input type="text" placeholder="Enter Email" name="email" required>
+                        <td>Mo</td>
+                        <td>Tu</td>
+                        <td>We</td>
+                        <td>Th</td>
+                        <td>Fr</td>
+                        <td>Sa</td>
+                        <td>Su</td>
 
-                        <label for="psw">
-                            <b>Password</b>
-                        </label>
-                        <input type="password" placeholder="Enter Password" name="psw" required>
+                    </tr>
 
-                        <label for="psw-repeat">
-                            <b>Repeat Password</b>
-                        </label>
-                        <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+                </thead>
 
-                        <label>
-                            <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember
-                            me
-                        </label>
+                <tbody>
 
-                        <p>By creating an account you agree to our
-                            <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                    <tr>
+                        <td class="prev-month">30</td>
+                        <td class="prev-month">31</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                        <td>10</td>
+                        <td>11</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td class="event">14</td>
+                        <td>15</td>
+                        <td>16</td>
+                        <td>17</td>
+                        <td>18</td>
+                        <td>19</td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>21</td>
+                        <td>22</td>
+                        <td>23</td>
+                        <td>24</td>
+                        <td class="current-day event">25</td>
+                        <td>26</td>
+                    </tr>
 
-                        <div class="clearfix">
-                            <button type="button" class="cancelbtn">Cancel</button>
-                            <button type="submit" class="signupbtn">Sign Up</button>
-                        </div>
+                    <tr>
+                        <td class="event">23</td>
+                        <td>27</td>
+                        <td>28</td>
+                        <td>29</td>
+                        <td>30</td>
+                        <td>31</td>
+                        <td class="next-month">1</td>
+                    </tr>
+                    <tr>
+                        <td class="next-month">2</td>
+                        <td class="next-month">3</td>
+                        <td class="next-month">4</td>
+                        <td class="next-month">5</td>
+                        <td class="next-month">6</td>
+                        <td class="next-month">7</td>
+                        <td class="next-month">8</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div> <!-- end calendar -->
+    </div>
+</div>
+</div>
+<div class="message">
+    <div class="card">
+        <div class="card-section" id="emailList">
+            <div class="email-list">
+                <div class="email-list-item email-list-item--unread">
+                    <div class="email-list-actions">
+                        <label class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input"><span class="custom-control-label"></span>
+                        </label><a href="#" class="favorite active"><span class="mdi mdi-star"></span></a>
                     </div>
-                </form>
-
+                    <div class="email-list-detail"><span class="date float-right"><i class="icon mdi mdi-attachment-alt"></i>
+                            28 Jul</span><span class="from">Penelope Thornton</span>
+                        <p class="msg">Urgent - You forgot your keys in the class room, please come imediatly!</p>
+                    </div>
+                </div>
+                <div class="email-list-item email-list-item--unread">
+                    <div class="email-list-actions">
+                        <label class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input"><span class="custom-control-label"></span>
+                        </label><a href="#" class="favorite"><span class="mdi mdi-star"></span></a>
+                    </div>
+                    <div class="email-list-detail"><span class="date float-right"></span><span class="date float-right"><i
+                                class="icon mdi mdi-attachment-alt"></i> 13 Jul</span><span class="from">Benji Harper
+                        </span>
+                        <p class="msg">Urgent - You forgot your keys in the class room, please come imediatly!</p>
+                    </div>
+                </div>
+                <div class="email-list-item">
+                    <div class="email-list-actions">
+                        <label class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input"><span class="custom-control-label"></span>
+                        </label><a href="#" class="favorite"><span class="mdi mdi-star"></span></a>
+                    </div>
+                    <div class="email-list-detail"><span class="date float-right">23 Jun</span><span class="from">Justine
+                            Myranda
+                        </span>
+                        <p class="msg">Urgent - You forgot your keys in the class room, please come imediatly!</p>
+                    </div>
+                </div>
+                <div class="email-list-item">
+                    <div class="email-list-actions">
+                        <label class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input"><span class="custom-control-label"></span>
+                        </label><a href="#" class="favorite"><span class="mdi mdi-star"></span></a>
+                    </div>
+                    <div class="email-list-detail"><span class="date float-right">17 May</span><span class="from">John Doe
+                        </span>
+                        <p class="msg">Urgent - You forgot your keys in the class room, please come imediatly!</p>
+                    </div>
+                </div>
+                <div class="email-list-item">
+                    <div class="email-list-actions">
+                        <label class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input"><span class="custom-control-label"></span>
+                        </label><a href="#" class="favorite"><span class="mdi mdi-star"></span></a>
+                    </div>
+                    <div class="email-list-detail"><span class="date float-right">16 May</span><span class="from">Sherwood
+                            Clifford
+                        </span>
+                        <p class="msg">Urgent - You forgot your keys in the class room, please come imediatly!</p>
+                    </div>
+                </div>
+                <div class="email-list-item">
+                    <div class="email-list-actions">
+                        <label class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input"><span class="custom-control-label"></span>
+                        </label><a href="#" class="favorite"><span class="mdi mdi-star"></span></a>
+                    </div>
+                    <div class="email-list-detail"><span class="date float-right">12 May</span><span class="from">Kristopher
+                            Donny
+                        </span>
+                        <p class="msg">Urgent - You forgot your keys in the class room, please come imediatly!</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+<div class="note">
+    <div class="card">
+        <div class="card-section">
+            <p>Notes: </p>
+        </div>
+    </div>
+</div>
+</main>
 
 <div class="container">
 

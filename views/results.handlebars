@@ -1,10 +1,15 @@
-
-<main class="display">
+<div class="cardContainer">
+    <div class="sideBar">
+        <a class="sideLink" href="/">Back To Seach</a>
+        <br>
+        <a class="sideLink" href="/tutors/josh123">Profile Page</a>
+        <br>
+        <a class="sideLink" href="">FAQs</a>
+    </div>
     <!-- Tutor cards will be displayed here -->
     <div class="cardContainer">
         {{#each tutor}} {{> tutors/tutors-card}} {{/each}}
     </div>
 
-</main>
+</div>
 
-<script src="./assets/js/index.js" type="text/javascript"></script>

@@ -214,7 +214,6 @@ main div.cell {
   background: #f1f1f1;
   width: 35%;
   border: none;
-
 }
 
 textarea {
@@ -246,7 +245,8 @@ textarea:focus {
 
 main.display {
   text-align: center;
-  height: 71vh;
+  min-height: 650px;
+  max-height: auto;
   padding-top: 250px;
 }
 
@@ -281,7 +281,7 @@ main.display {
   display: block;
   background: #2a3b2e62;
   box-shadow: 2px 2px #202020b4;
-  padding: 4%; 
+  padding: 4%;
   color: #ce913c;
   margin: 3px auto;
 }
@@ -319,7 +319,6 @@ main.display {
   max-height: 100px;
   box-shadow: 2px 2px #202020b4;
   margin-bottom: 3px;
- 
 }
 
 .subjects {
@@ -575,21 +574,6 @@ input[type=password] {
   float: right;
   padding-top: 16px;
 }
-@media screen and (min-width: 992px) {
-  main.grid-container {
-  display: grid;
-  height: 100%;
-  grid-template-columns: 0.5fr 1fr 1.5fr;
-  grid-template-rows: 0.5fr 1.3fr 1fr;
-  grid-gap: 1px 1px;
-  grid-template-areas: "profile bio bio" "calendar calendar calendar" "message message note";
-  }
-   .profile { grid-area: profile; }
-   .bio { grid-area: bio; }
-   .calendar { grid-area: calendar; }
-   .message { grid-area: message; }
-   .note { grid-area: note; }
-}
 
 /* Change styles for span and cancel button on extra small screens */
 
@@ -601,4 +585,235 @@ input[type=password] {
   #loginForm .cancelbtn {
     width: 100%;
   }
+}
+
+.profile {
+  background: #f1f1f1da;
+  width: 60%;
+  padding: 20px;
+  margin: auto;
+  margin-top: -80px;
+  margin-bottom: 100px;
+}
+
+.profileSideBar {
+  position: fixed;
+  float: left;
+  padding: 15px;
+  margin-top: -200px;
+  margin-left: 3%;
+  text-align: center;
+  background: #43664b;
+  box-shadow: 4px 4px #202020b4;
+  height: auto;
+  width: 15%;
+  opacity: .5;
+}
+
+.profileSideBar:hover {
+  opacity: 1;
+}
+
+.profile-img {
+  width: 40%;
+  margin: auto;
+  margin-top: -140px;
+}
+
+.profile-img h2 {
+  color: #ffb751;
+  text-shadow: 2px 2px #202020b4;
+}
+
+.profile-img img {
+  width: 50%;
+  box-shadow: 2px 2px #202020b4;
+}
+
+.bio {
+  background: #f1f1f1f8;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: -20px;
+  padding: 15px;
+  text-align: left;
+  box-shadow: 2px 2px #202020b4;
+}
+
+.bio h3 {
+  margin: auto;
+  color: #ffb751;
+  text-shadow: 2px 2px #202020b4;
+}
+
+.messages {
+  width: 80%;
+  margin: auto;
+  height: 300px;
+  background: #f1f1f1f8;
+  padding: 15px;
+  display: block;
+  font-size: 75%;
+  overflow: auto;
+  box-shadow: 2px 2px #202020b4;
+}
+
+.message-head {
+  color: #ffb751;
+  text-shadow: 2px 2px #202020b4;
+  text-align: left;
+}
+
+.message-item {
+  display: inline-block;
+  border: 1px solid #7c8a95;
+  margin-bottom: 5px;
+  box-shadow: 1px 1px #202020b4;
+}
+
+.sender {
+  width: 20%;
+  height: 80px;
+  padding: 20px 3px 3px;
+  border-right: 1px solid #7c8a95;
+  float: left;
+}
+
+.message-content {
+  width: 50%;
+  height: 80px;
+  float: left;
+  text-align: left;
+  padding: 3px;
+  border-right: 1px solid #7c8a95;
+}
+
+.time-stamp {
+  width: 15%;
+  height: 80px;
+  padding-top: 30px;
+  border-right: 1px solid #7c8a95;
+  float: left;
+}
+
+.reply {
+  width: 15%;
+  height: 80px;
+  float: left;
+}
+
+.replyBtn {
+  width: 65%;
+  margin-top: 20px;
+}
+
+.calendar {
+  text-align: center;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 20px;
+  background: #f1f1f1f8;
+  padding: 15px;
+  box-shadow: 2px 2px #20202098;
+}
+
+.calendar header {
+  position: relative;
+}
+
+.calendar h3 {
+  text-transform: uppercase;
+  color: #ffb751;
+  text-shadow: 2px 2px #202020b4;
+}
+
+.calendar thead {
+  font-weight: 600;
+  text-transform: uppercase;
+  border: 2px solid #202020b4;
+}
+
+.calendar tbody {
+  color: #7c8a95;
+  border: 1px solid #202020b4;
+}
+
+.calendar tbody td:hover {
+  border: 2px solid #00addf;
+}
+
+.calendar td {
+  border: 2px solid transparent;
+  border-radius: 50%;
+  display: inline-block;
+  height: 4em;
+  line-height: 4em;
+  text-align: center;
+  width: 4em;
+}
+
+.calendar .prev-month,
+.calendar .next-month {
+  color: #cbd1d2;
+}
+
+.calendar .prev-month:hover,
+.calendar .next-month:hover {
+  border: 2px solid #cbd1d2;
+}
+
+.current-day {
+  background: #00addf;
+  color: #f9f9f9;
+}
+
+.event {
+  cursor: pointer;
+  position: relative;
+}
+
+.event:after {
+  background: #00addf;
+  border-radius: 50%;
+  bottom: .2em;
+  display: block;
+  content: '';
+  height: .5em;
+  left: 50%;
+  margin: -.25em 0 0 -.25em;
+  position: absolute;
+  width: .5em;
+}
+
+.event.current-day:after {
+  background: #f9f9f9;
+}
+
+.btn-prev,
+.btn-next {
+  border: 2px solid #cbd1d2;
+  border-radius: 50%;
+  color: #cbd1d2;
+  height: 2em;
+  font-size: .75em;
+  line-height: 2em;
+  margin: -1em;
+  position: absolute;
+  top: 50%;
+  width: 2em;
+}
+
+.btn-prev:hover,
+.btn-next:hover {
+  background: #cbd1d2;
+  color: #f9f9f9;
+}
+
+.btn-prev {
+  left: 6em;
+}
+
+.btn-next {
+  right: 6em;
 }
