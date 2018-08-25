@@ -27,9 +27,10 @@ module.exports = function (app) {
       where: {
         username: req.params.username
       }
-    }).then(function (messages) {
+    }).then(function (dbTutors) {
+      console.log(dbtutors)
       res.render("tutorprofile", {
-        message: messages
+        tutor: dbTutors
       });
     });
   });

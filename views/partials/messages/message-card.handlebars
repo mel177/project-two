@@ -1,0 +1,68 @@
+<div class="message-item">
+    <div class="sender">
+        <b>From: </b>
+        <p>{{this.from}}</p>
+    </div>
+    <div class="message-content">
+        <p>{{this.message}}</p>
+    </div>
+    <div class="time-stamp">
+        <b>August 25th, 2018</b>
+    </div>
+    <div class="reply">
+        <button class="replyBtn" data-open="modal1" data-from="{{this.from}}"  data-to="{{this.to}}">Reply!</button>
+        <div id="messageModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+
+                <div class="messageContainer">
+                    <br>
+                    <b class="messageHead" id="head"> </b>
+                    <hr id="messageHR">
+                    <label for="message">
+                        <b>Enter Message Below</b>
+                    </label>
+                    <form action="/messages/{{this.username}}" method="POST">
+                        <textarea id="messageBox" name="message" rows="10" cols="50" placeholder="Why not ask when this tutor is available?"></textarea>
+                        <button type="submit" id="sendBtn">Send</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<script>
+    var message = document.getElementById('messageModal');
+    
+    var span = document.getElementsByClassName("close");
+
+    var buttons = document.getElementsByClassName("messageBtn");
+
+    var send = document.getElementsByClassName("sendBtn");
+
+    for (i = 0; i < span.length; i++) {
+        span[i].addEventListener('click', function () {
+            message.style.display = "none";
+        }, false)
+    }
+
+    for (i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('click', function () {
+            message.style.display = "block";
+            var messageId = document.getElementById('head');
+            var from = this.getAttribute("data-from");
+            messageId.innerHTML = "Send message to " + from;
+        }, false)
+    }
+
+    for (i = 0; i < send.length; i++) {
+        send[i].addEventListener("click", function (event) {
+            event.preventDefault();
+
+        })
+    }
+</script>
