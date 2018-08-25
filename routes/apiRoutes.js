@@ -10,7 +10,7 @@ module.exports = function(router) {
     }).then(function(dbTutors) {
       //res.json(dbTutors)
       //res.render('results', dbTutors);
-      console.log(dbTutors[0])
+      //console.log(dbTutors[0])
       res.render("results", { tutor: dbTutors}); 
     });
   });
@@ -23,37 +23,61 @@ module.exports = function(router) {
       email: req.body.email,
       username: req.body.username,
       password: req.body.psw,
+<<<<<<< HEAD
       photo: req.body.photo,
       bio: req.body.about,
+=======
+      bio: req.body.about,
+      phonenumber: req.body.number,
+>>>>>>> d8703d8089cda6329b1cce75c71338a35f6175f2
       subjects: req.body.subject
     }).then(function(newTutor) {
-      console.log(newTutor);
-      res.render("tutorprofile", {tutor: newTutor})
+      //console.log(newTutor[0].dataValues.username);
+      let username = req.body.username;
+      res.redirect(`/tutors/${username}`)
     });
   });
 
   // Signs up a student
-  router.post("/api/students", function(req, res) {
+  router.post("/students", function(req, res) {
     db.Student.create({
       name: req.body.name,
       username: req.body.username,
       password: req.body.psw
     }).then(function(newStudent) {
-      console.log(newStudent);
-      res.render("studentprofile", {student: newStudent})
+      //console.log(newStudent);
+      res.redirect("studentprofile", {student: newStudent})
     });
   });
   router.put("api/tutors/:id", function (req, res){
       db.Tutor.update({ }, { })
   });
-  router.post("/messages/:user", function(req, res){
+  router.get("/api/students", function (req, res) {
+    db.Tutor.findAll({}).then(function (dbStudents) {
+      // res.render("results", tutor);
+      res.json(dbStudents);
+    });
+  });
+  router.get("/api/tutors", function (req, res) {
+    db.Tutor.findAll({}).then(function (dbTutors) {
+      // res.render("results", tutor);
+      res.json(dbTutors);
+    });
+  });
+  router.get("/api/messages", function (req, res) {
+    db.Tutor.findAll({}).then(function (dbMessages) {
+      // res.render("results", tutor);
+      res.json(dbMessages);
+    });
+  });
+  router.post("/messages/:user", function (req, res) {
     db.Message.create({
       to: req.params.user,
       from: "student name",
       message: req.body.message
-    }).then(function(newMessage) {
-      console.log(newMessage);
-      res.redirect("/results") // need to figure out how to re display the results where they left off
+    }).then(function (newMessage) {
+      //console.log(newMessage);
+      res.end() // need to figure out how to re display the results where they left off
     });
   });
   //find specific tutor
@@ -70,7 +94,7 @@ router.get("/students/:username", function(req, res) {
       username: req.body.uname
     }
   }).then(function(dbStudents) {
-    console.log(dbStudents)
+   // console.log(dbStudents)
     res.render("studentprofile", dbStudents);
   });
 })
