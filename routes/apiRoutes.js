@@ -1,7 +1,7 @@
 var db = require("../models/");
 
 module.exports = function(router) {
-  router.post("/results", function(req, res){
+  router.post("/results", function(req, res) {
     console.log(req.body.subject);
     db.Tutor.findAll({
       where: {
@@ -10,8 +10,8 @@ module.exports = function(router) {
     }).then(function(dbTutors) {
       //res.json(dbTutors)
       //res.render('results', dbTutors);
-      console.log(dbTutors[0])
-      res.render("results", { tutor: dbTutors}); 
+      console.log(dbTutors[0]);
+      res.render("results", { tutor: dbTutors });
     });
   });
 
@@ -28,9 +28,10 @@ module.exports = function(router) {
       subjects: req.body.subject
     }).then(function(newTutor) {
       console.log(newTutor);
-      res.render("tutorprofile", {tutor: newTutor})
+      res.render("tutor", { tutor: newTutor });
     });
   });
+
   // Signs up a student
   router.post("/api/students", function(req, res) {
     db.Student.create({
@@ -39,39 +40,38 @@ module.exports = function(router) {
       password: req.body.psw
     }).then(function(newStudent) {
       console.log(newStudent);
-      res.render("studentprofile", {student: newStudent})
+      res.render("profile", { student: newStudent });
     });
   });
-  router.put("api/tutors/:id", function (req, res){
-      db.Tutor.update({ }, { })
+
+  router.put("api/tutors/:id", function(req, res) {
+    db.Tutor.update({}, {});
   });
-  router.post("/messages/:user", function(req, res){
+
+  router.post("/messages/:user", function(req, res) {
     db.Message.create({
       to: req.params.user,
       from: "student name",
       message: req.body.message
     }).then(function(newMessage) {
       console.log(newMessage);
-      res.redirect("/results") // need to figure out how to re display the results where they left off
+      res.redirect("/results"); // need to figure out how to re display the results where they left off
     });
   });
   //find specific tutor
 
+  //find specific student
+  router.get("/api/students/:id", function(req, res) {});
 
-
-  
-
-//find specific student
-router.get("/students/:username", function(req, res) {
-
-  db.Student.findAll({
-    where: {
-      username: req.body.uname
-    }
-  }).then(function(dbStudents) {
-    console.log(dbStudents)
-    res.render("studentprofile", dbStudents);
+  //find specific student
+  router.get("/students/:username", function(req, res) {
+    db.Student.findAll({
+      where: {
+        username: req.body.uname
+      }
+    }).then(function(dbStudents) {
+      console.log(dbStudents);
+      res.render("studentprofile", dbStudents);
+    });
   });
-})
-
 };

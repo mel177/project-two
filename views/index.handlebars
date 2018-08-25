@@ -1,4 +1,7 @@
-<div class="container">
+<head>
+    <title id="homePage">BetterBrain | Home</title>
+</head>
+<main class="display">
 
     <div class="sub-text">
         <p>A better way to find a tutor.</p>
@@ -6,7 +9,7 @@
 
     <form action="/results" method="POST">
         <div class="input-group input-group-rounded">
-            <input class="input-group-field" name="subject" type="search" placeholder="Enter a subject (ie. Math)">
+            <input class="input-group-field" name="subject" type="search" placeholder="Enter a subject (ie. Math)" required>
             <select id="selectMenu">
                 <option value="college">College</option>
                 <option value="high">High School</option>
@@ -18,4 +21,6 @@
         </div>
     </form>
 
-</div>
+</main>
+
+<script src="./assets/js/index.js" type="text/javascript"></script>

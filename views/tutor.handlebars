@@ -1,0 +1,147 @@
+<header>
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <img id="logo" src="assets/img/logo.png">
+            <div class="title">
+                <p>BetterBrain</p>
+            </div>
+        </div>
+        <div class="top-bar-right">
+            <a href="/"><i class="far fa-user-circle fa-3x"></i></a>
+            <a href="/"><i class="fas fa-bars fa-3x"></i></a>
+            <a href="/"><i class="fas fa-sign-out-alt fa-3x"></i></a>
+        </div>
+    </div>
+</header>
+
+<main class="grid-container">
+    <div class="profile">
+        {{> tutors/tutors-profile}}
+    </div>
+    <div class="calendar">
+        <div class="card">
+            <div class="card-section">
+                <div class="calendar">
+
+                    <header>
+
+                        <h2>September</h2>
+
+                        <a class="btn-prev fontawesome-angle-left" href="#"></a>
+                        <a class="btn-next fontawesome-angle-right" href="#"></a>
+
+                    </header>
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <td>Mo</td>
+                                <td>Tu</td>
+                                <td>We</td>
+                                <td>Th</td>
+                                <td>Fr</td>
+                                <td>Sa</td>
+                                <td>Su</td>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td class="prev-month">30</td>
+                                <td class="prev-month">31</td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>7</td>
+                                <td>8</td>
+                                <td>9</td>
+                                <td>10</td>
+                                <td>11</td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td class="event">14</td>
+                                <td>15</td>
+                                <td>16</td>
+                                <td>17</td>
+                                <td>18</td>
+                                <td>19</td>
+                            </tr>
+                            <tr>
+                                <td>20</td>
+                                <td>21</td>
+                                <td>22</td>
+                                <td>23</td>
+                                <td>24</td>
+                                <td class="current-day event">25</td>
+                                <td>26</td>
+                            </tr>
+
+                            <tr>
+                                <td class="event">23</td>
+                                <td>27</td>
+                                <td>28</td>
+                                <td>29</td>
+                                <td>30</td>
+                                <td>31</td>
+                                <td class="next-month">1</td>
+                            </tr>
+                            <tr>
+                                <td class="next-month">2</td>
+                                <td class="next-month">3</td>
+                                <td class="next-month">4</td>
+                                <td class="next-month">5</td>
+                                <td class="next-month">6</td>
+                                <td class="next-month">7</td>
+                                <td class="next-month">8</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div> <!-- end calendar -->
+            </div>
+        </div>
+    </div>
+    <div class="message">
+        <div class="card">
+            <div class="card-section" id="emailList">
+                <div class="email-list">
+                    <div class="email-list-item email-list-item--unread">
+                        <div class="email-list-actions">
+                            <label class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input"><span class="custom-control-label"></span>
+                            </label><a href="#" class="favorite active"><span class="mdi mdi-star"></span></a>
+                        </div>
+                        <div class="email-list-detail"><span class="date float-right"><i class="icon mdi mdi-attachment-alt"></i>
+                                28 Jul</span><span class="from">Penelope Thornton</span>
+                            <p class="msg">Urgent - You forgot your keys in the class room, please come imediatly!</p>
+                        </div>
+                    </div>
+                    {{#each}}
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="note">
+        <div class="card">
+            <div class="card-section">
+                <p>Notes:</p>
+            </div>
+        </div>
+    </div>
+</main>

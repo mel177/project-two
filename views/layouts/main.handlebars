@@ -1,251 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js" lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Simplified way of finding a tutor">
+  <meta name="author" content="BetterBrain Team">
+  <link rel="icon" href="./assets/img/logo.png" type="image/gif" sizes="32x16">
+
   <title>Better Brains</title>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.0-rc.2/dist/css/foundation.min.css" integrity="sha256-iJQ8dZac/jUYHxiEnZJsyVpKcdq2sQvdA7t02QFmp30= sha384-SplqNBo/0ZlvSdwrP/riIPDozO5ck8+yIm++KVqyMAC53S6m3BaV+2OLpi7ULOOh sha512-ho6hK4sAWdCeqopNZWNy1d9Ok2hzfTLQLcGSr8ZlRzDzh6tNHkVoqSl6wgLsqls3yazwiG9H9dBCtSfPuiLRCQ=="
     crossorigin="anonymous">
-  <link rel="stylesheet" href="/styles/styles.css">
+  <link rel="stylesheet" href="./assets/styles/calender.css">
+  <link rel="stylesheet" href="./assets/styles/grid-layout.css">
+  <link rel="stylesheet" href="./assets/styles/styles.css">
 
 </head>
 
 <body>
-  <div class="top-bar">
-    <div class="top-bar-left">
-      <img id="logo" src="/imgs/logo.png">
-      <div class="title" id="clickable">
-        <p>Better Brains</p>
-      </div>
-    </div>
-    <div class="top-bar-right">
 
-      <a href="#" id="loginBtn" data-open="modal1">Login</a>
-      <div id="loginModal" class="modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
-
-          <form action="/{{this.username}}" method="GET" id="loginForm">
-
-            <div class="loginContainer">
-              <h3>Log In</h3>
-              <hr>
-              <label for="uname">
-                <b>Username</b>
-              </label>
-              <input type="text" placeholder="Enter Username" name="uname" required>
-
-              <label for="psw">
-                <b>Password</b>
-              </label>
-              <input type="password" placeholder="Enter Password" name="psw" required>
-
-              <button type="submit">Login</button>
-              <label>
-                <input type="checkbox" checked="checked" name="remember"> Remember me
-              </label>
-            </div>
-          </form>
-
-        </div>
-      </div>
-
-      <a href="#" id="stu-signupBtn" data-open="modal1">Student Sign Up</a>
-      <div id="stu-signupModal" class="modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
-
-          <form action="/api/students" method="POST" style="border:1px solid #ccc">
-            <div class="formContainer">
-              <h3>Sign Up As A Student</h3>
-              <hr>
-
-              <label for="name">
-                <b>Username</b>
-              </label>
-              <input type="text" placeholder="Enter Name" name="name" required>
-
-              <label for="psw">
-                <b>Password</b>
-              </label>
-              <input type="password" placeholder="Enter Password" name="psw" required>
-
-              <label for="psw-repeat">
-                <b>Repeat Password</b>
-              </label>
-              <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-
-              <label>
-                <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-              </label>
-
-              <p>By creating an account you agree to our
-                <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-
-              <div class="clearfix">
-                <button type="button" class="cancelbtn">Cancel</button>
-                <button type="submit" class="signupbtn">Sign Up</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-
-      <a href="#" id="tut-signupBtn" data-open="modal1">Tutor Sign Up</a>
-      <div id="tut-signupModal" class="modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
-
-          <form action="/api/tutors" method="POST" style="border:1px solid #ccc">
-            <div class="formContainer">
-              <h3>Sign Up As A Tutor</h3>
-              <hr>
-
-              <label for="name">
-                <b>Name</b>
-              </label>
-              <input type="text" placeholder="Enter Name" name="name" required>
-
-              <label for="subject">
-                <b>Subject</b>
-              </label>
-              <input type="text" placeholder="Enter Subject" name="subject" required>
-
-              <label for="level">
-                <b>Select Study Level</b>
-              </label>
-              <select name="level" id="level">
-                <option value="college">College</option>
-                <option value="high">High School</option>
-                <option value="middle">Middle School</option>
-              </select>
-
-              <label for="about">
-                <b>About You</b>
-              </label>
-              <textarea id="aboutBox" name="about" rows="8" cols="20">Add a brief description of yourself...</textarea>
-
-              <label for="photo">
-                <b>Profile IMG</b>
-              </label>
-              <input type="text" placeholder="Enter img URL" name="photo">
-
-              <label for="username">
-                <b>Username</b>
-              </label>
-              <input type="text" placeholder="Enter Username" name="username" required>
-
-              <label for="psw">
-                <b>Password</b>
-              </label>
-              <input type="password" placeholder="Enter Password" name="psw" required>
-
-              <label for="psw-repeat">
-                <b>Repeat Password</b>
-              </label>
-              <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-
-              <label>
-                <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-              </label>
-
-              <p>By creating an account you agree to our
-                <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-
-              <div class="clearfix">
-                <button type="button" class="cancelbtn">Cancel</button>
-                <button type="submit" class="signupbtn">Sign Up</button>
-              </div>
-            </div>
-          </form>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
+  {{> index/header}}
+  
   {{{body}}}
 
-  <div class="footer">
-    <div class="footer-links" id="api-links">
-      <h4>API Links</h4>
-      <a href="">Tutors</a>
-      <a href="">Students</a>
+  <footer class="grid-container full">
+    <div class="grid-x grid-padding-x">
+      <div class="cell auto">
+        <div class="footer-links" id="api-links">
+          <h4>API Links</h4>
+          <a href="">Tutors</a>
+          <a href="">Students</a>
+        </div>
+      </div>
+      <div class="cell auto">
+        <div class="footer-links" id="created-by">
+          <h4>Created By:</h4>
+          <a href="https://github.com/prestonedwards3" target="blank">Preston</a>
+          <a href="https://github.com/medwasfy" target="blank">Med</a>
+          <a href="https://github.com/smpldvd" target="blank">David</a>
+          <a href="https://github.com/RajBommala" target="blank">Raj</a>
+          <a href="https://github.com/jscottwillems" target="blank">Josh</a>
+          <a href="https://github.com/mel177" target="blank">Melinh</a>
+        </div>
+      </div>
     </div>
-    <div class="footer-links" id="created-by">
-      <h4>Created By:</h4>
-      <a href="https://github.com/prestonedwards3" target="blank">Preston</a>
-      <a href="https://github.com/medwasfy" target="blank">Med</a>
-      <a href="https://github.com/smpldvd" target="blank">David</a>
-      <a href="https://github.com/RajBommala" target="blank">Raj</a>
-      <a href="https://github.com/jscottwillems" target="blank">Josh</a>
-      <a href="https://github.com/mel177" target="blank">Melinh</a>
+    <div class="cell">
+      <hr style="max-width: 100vw">
     </div>
-    <hr>
-    <p id="copy">&copy;Copyright 2018 Better Brains</p>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.0-rc.2/dist/js/foundation.min.js" integrity="sha256-G6jsRyH1fxbsvFIXSCuwYmI1aIDYBa28xscrvmYjJy0= sha384-vtoG68NvPc9azmFJr447vvY8qgdyA4FdaJ5/bqvzIM4eAdZfO0iyRRF8l2AAscYI sha512-43seCcNrHA0BQgrtyajB9sp8yOdv5c8QdYvgjP7zJ7v+dmzAcxYDQ2gupb9aztsNWBq1COIp/3NHYkQs4l/dkg=="
-    crossorigin="anonymous"></script>
-
-
-
-  <!-- JS for modals -->
-  <script>
-    var stuSignUp = document.getElementById('stu-signupModal');
-    var tutSignUp = document.getElementById('tut-signupModal');
-
-    var logIn = document.getElementById('loginModal');
-
-    // Get the button that opens the modal
-    var stuSignBtn = document.getElementById("stu-signupBtn");
-    var tutSignBtn = document.getElementById("tut-signupBtn");
-
-    var logBtn = document.getElementById('loginBtn')
-
-    // Get the <span> element that closes the modal
-    var span1 = document.getElementsByClassName("close")[0];
-    var span2 = document.getElementsByClassName("close")[1];
-    var span3 = document.getElementsByClassName("close")[2];
-    // When the user clicks on the button, open the modal 
-    stuSignBtn.onclick = function () {
-      stuSignUp.style.display = "block";
-    }
-    tutSignBtn.onclick = function () {
-      tutSignUp.style.display = "block";
-    }
-
-    logBtn.onclick = function () {
-      logIn.style.display = "block";
-    }
-
-    // When the user clicks on <span> (x), close the modal
-    span1.onclick = function () {
-      logIn.style.display = "none";
-    }
-
-    span2.onclick = function () {
-      stuSignUp.style.display = "none";
-    }
-
-    span3.onclick = function () {
-      tutSignUp.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-      if (event.target == signUp) {
-        signUp.style.display = "none";
-      } else if (event.target == logIn) {
-        logIn.style.display = "none";
-      }
-    }
-  </script>
+    <div class="cell">
+      <p id="copy">&copy;Copyright 2018 Better Brains</p>
+    </div>
+  </footer>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.0-rc.2/dist/js/foundation.min.js" integrity="sha256-G6jsRyH1fxbsvFIXSCuwYmI1aIDYBa28xscrvmYjJy0="
+    crossorigin="anonymous"></script>
+  <script src="./assets/js/modal.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
 </body>
 
 </html>
