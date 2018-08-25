@@ -1,6 +1,8 @@
 var db = require("../models/");
-
+var passport = require('passport');
 module.exports = function(router) {
+
+
   router.post("/results", function(req, res){
     console.log(req.body.subject);
     db.Tutor.findAll({

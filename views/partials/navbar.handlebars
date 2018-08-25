@@ -1,0 +1,42 @@
+
+  <nav>
+    <div class="nav-wrapper container center">
+      <a href="/" class="brand-logo center" title="Better Brains"><img src="public/imgs/logo.png" width="170px" height="95px" alt="Project WE"></a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        
+        {{!--if user is NOT logged in then this li will display--}}
+        {{#unless loginStatus}}
+            <li><a href="/login">Login</a></li>
+        {{/unless}}
+            <li><a href="/">Home</a></li>
+       {{!--if user is logged in then these li will display--}}
+        {{#if loginStatus}}
+            
+            <li> Hello {{dbUser.name}}</li>
+            <li><a href="/logout">Log Out</a></li>
+        {{/if}}
+         
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+
+        {{#unless loginStatus}}
+            <li><a href="/login">Login</a></li>
+        {{/unless}}
+            
+
+        {{#if loginStatus}}
+            
+            <li style="color: #b6d5d3"> Hello {{dbUser.name}}</li>
+        
+            {{#if dbUser.profile_picture}}
+            <li><img src="{{dbUser.profile_picture}}"></li>
+            {{/if}}
+            <li><a href="/logout">Log Out</a></li>
+            <li><a href="/">Home</a></li>
+        {{/if}}
+
+
+      </ul>
+    </div>
+  </nav>
