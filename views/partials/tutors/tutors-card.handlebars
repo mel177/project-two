@@ -34,9 +34,9 @@
                 <label for="message">
                     <b>Enter Message Below</b>
                 </label>
-                <form action="/messages/{{this.username}}" method="POST"> 
+                <form action="/messages/{{this.username}}" method="POST" > 
                 <textarea id="messageBox" name="message" rows="10" cols="50" placeholder="Why not ask when this tutor is available?"></textarea>
-                <button type="submit" id="sendBtn">Send</button>
+                <button type="submit" id="sendBtn" data-username="{{this.username}}">Send</button>
                 </form>
             </div>
 

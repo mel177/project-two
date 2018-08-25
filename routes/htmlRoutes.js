@@ -14,21 +14,19 @@ module.exports = function (app) {
         subjects: req.body.subject
       }
     }).then(function (dbTutors) {
-      // res.render("results", tutor);
-      console.log("this does something");
-      res.render("tutorprofile", {
+      res.render("results", {
         tutor: dbTutors
       });
     });
   });
 
   app.get("/tutors/:username", function (req, res) {
-    db.Tutor.findAll({ //we need a join that gets messages from the messages table and user into from tutor table
+    db.Tutor.findOne({ 
       where: {
         username: req.params.username
       }
     }).then(function (dbTutors) {
-      console.log(dbtutors)
+      console.log(dbTutors)
       res.render("tutorprofile", {
         tutor: dbTutors
       });

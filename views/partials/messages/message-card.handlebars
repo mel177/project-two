@@ -15,7 +15,7 @@
             <div class="modal-content">
                 <span class="close">&times;</span>
 
-                <div class="messageContainer">
+                <div class="messageContainer" id="messageArea">
                     <br>
                     <b class="messageHead" id="head"> </b>
                     <hr id="messageHR">
@@ -60,8 +60,9 @@
     }
 
     for (i = 0; i < send.length; i++) {
-        send[i].addEventListener("click", function (event) {
-            event.preventDefault();
+        send[i].addEventListener("click", function () {
+            var messageArea = document.getElementById("messageArea");
+            messageArea.innerHTML = "";
 
         })
     }
