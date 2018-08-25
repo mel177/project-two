@@ -108,4 +108,8 @@ module.exports = function (app) {
         res.redirect("/appointment");
       });
   });
+
+  app.get("*", function(req, res) {
+    res.render("404");
+  });
 };
