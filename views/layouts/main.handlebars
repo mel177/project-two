@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.0-rc.2/dist/css/foundation.min.css" integrity="sha256-iJQ8dZac/jUYHxiEnZJsyVpKcdq2sQvdA7t02QFmp30= sha384-SplqNBo/0ZlvSdwrP/riIPDozO5ck8+yIm++KVqyMAC53S6m3BaV+2OLpi7ULOOh sha512-ho6hK4sAWdCeqopNZWNy1d9Ok2hzfTLQLcGSr8ZlRzDzh6tNHkVoqSl6wgLsqls3yazwiG9H9dBCtSfPuiLRCQ=="
     crossorigin="anonymous">
   <link rel="stylesheet" href="/styles/styles.css">
-  
+
 </head>
 
 <body>
@@ -122,8 +122,20 @@
                 <option value="middle">Middle School</option>
               </select>
 
-              <textarea id="aboutBox" name="about" rows="8" cols="20">Add a brief description of yourself...
-                        </textarea>
+              <label for="about">
+                <b>About You</b>
+              </label>
+              <textarea id="aboutBox" name="about" rows="8" cols="20">Add a brief description of yourself...</textarea>
+
+              <label for="photo">
+                <b>Profile IMG</b>
+              </label>
+              <input type="text" placeholder="Enter img URL" name="photo">
+
+              <label for="username">
+                <b>Username</b>
+              </label>
+              <input type="text" placeholder="Enter Username" name="username" required>
 
               <label for="psw">
                 <b>Password</b>
@@ -179,7 +191,7 @@
     crossorigin="anonymous"></script>
 
 
- 
+
   <!-- JS for modals -->
   <script>
     var stuSignUp = document.getElementById('stu-signupModal');
@@ -190,7 +202,7 @@
     // Get the button that opens the modal
     var stuSignBtn = document.getElementById("stu-signupBtn");
     var tutSignBtn = document.getElementById("tut-signupBtn");
-  
+
     var logBtn = document.getElementById('loginBtn')
 
     // Get the <span> element that closes the modal
