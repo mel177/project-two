@@ -14,7 +14,7 @@ module.exports = function (sequelize, DataTypes) {
         username: {
 
             type: DataTypes.STRING,
-            //allowNull: false,
+            allowNull: false,
         },
         
         photo: {
@@ -35,12 +35,13 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.TEXT
         },
         photo: {
-            type: DataTypes.TEXT,
-            defaultValue: "http://thevillageofkairos.com/wp-content/uploads/2016/06/team-man-placeholder.jpg"
+            type: DataTypes.STRING,
+            defaultValue: "/imgs/placepic.jpg"
           },
     
         ratings: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            defaultValue: 5
         },
 
         availability: {

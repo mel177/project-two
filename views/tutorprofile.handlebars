@@ -1,9 +1,8 @@
-{{#each tutor}}
 <div class="container">
     <div class="profileSideBar">
         <a class="sideLink" href="/">Back To Seach</a>
         <br>
-        <a class="sideLink" href="/tutors/josh123">Profile Page</a>
+        <a class="sideLink" href="/tutors/:username">Profile Page</a>
         <br>
         <a class="sideLink" href="">FAQs</a>
     </div>
@@ -11,7 +10,7 @@
     <div class="profile">
 
         <div class="profile-img">
-            <img src={{tutor.photo}} alt="profile">
+            <img src={{tutor.photo}} alt="Image not found" onerror="this.src='/imgs/placepic.jpg';" />
             <h2>{{tutor.name}}</h2>
         </div>
         <br>
@@ -19,7 +18,7 @@
         <div class="bio">
             <h3>Bio</h3>
             <hr>
-            <p>{{tutor.about}}</p>
+            <p>{{tutor.bio}}</p>
         </div>
 
         <div class="calendar">
@@ -102,7 +101,6 @@
             </table>
         </div>
         <!-- end calendar -->
-        {{/each}}
         <div class="messages">
             <div class="message-head">
                 <h3>Messages</h3>
