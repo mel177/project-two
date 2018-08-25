@@ -1,5 +1,5 @@
 var db = require("../models");
-
+var passport = require("../config/passport");
 // Routes
 // =============================================================
 module.exports = function(app) {
@@ -122,5 +122,65 @@ module.exports = function(app) {
       .then(function(dbTutors) {
         res.redirect("/appointment");
       });
+    });
+    //handle login route
+    app.get('/login', function(req, res) {
+      res.render('login');
   });
+
+  //handle register route
+  app.get('/register', function(req, res) {
+      res.render('register');
+  });
+  //handle logout route
+  app.get("/logout", function(req, res) {
+    req.logout();
+    res.redirect("/");
+  });
+  // handle login route
+  app.post("/login", passport.authenticate('local'), function(req, res) {
+    res.json('/');
+});
+
+// handle register route and register user to database
+app.post("/register", function(req, res) {
+
+    db.User.create({
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password
+    }).then((result)=> {
+        console.log(result);
+        // send user back to login page
+        res.json('/login')
+    }).catch(function(err) {
+        //if err throw err to user
+        res.json(err);
+    });
+  });
+
+  //Twitter login routes
+  app.get('/auth/twitter',
+  passport.authenticate('twitter'));
+
+  app.get('/auth/twitter/callback', 
+  passport.authenticate('twitter', { failureRedirect: '/twittererror' }),
+    function(req, res) {
+
+    // Successful authentication, redirect home.
+    res.redirect('/');
+  });
+
+
+  //facebook login routes
+  app.get('/auth/facebook',
+    passport.authenticate('facebook', { scope: ['email']}));
+
+  app.get('/auth/facebook/callback',
+    passport.authenticate('facebook', { failureRedirect: '/facebookerror' }),
+    function(req, res) {
+      // Successful authentication, redirect home.
+      res.redirect('/');
+    });
+
 };

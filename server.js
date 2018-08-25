@@ -2,8 +2,8 @@ require("dotenv").config();
 var express = require("express");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
-
-// we required all the dependencies that the session management needs. After that we have created a new instance from the express-session module, which will store our sessions.
+var methodOverride = require("method-override");
+var cookieParser = require("cookie-parser");
 var passport = require('passport');
 var session = require('express-session');
 var MySQLStore = require('express-mysql-session')(session);
@@ -14,34 +14,14 @@ var db = require("./models");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
-// initiate session to authenticate user
-require('./authentication').init(app);
-var options = {
-	host: 'localhost',
-	user: 'root',
-	password: 'root',
-	database: 'chat_session'
-};
-
-var sessionStore = new MySQLStore(options);
-
-app.use(session({
-	key: 'session_cookie_name',
-	secret: 'session_cookie_secret',
-	store: sessionStore,
-	resave: false,
-	saveUninitialized: false
-}));
-
-console.log("chat app is in session");
-
-
+app.use(express.static("public"));
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(express.static("public"));
+// Override with POST having ?_method=DELETE
+app.use(methodOverride("_method"));
 
 // Handlebars
 app.engine(
@@ -51,6 +31,21 @@ app.engine(
   })
 );
 app.set("view engine", "handlebars");
+
+//Write cookies on header
+app.use(cookieParser());
+
+// create a session for user
+// app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {}
+}))
+// app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 // Routes
