@@ -1,64 +1,54 @@
-module.exports = function (sequelize, DataTypes) {
-    var Tutor = sequelize.define("Tutor", {
+module.exports = function(sequelize, DataTypes) {
+  var Tutor = sequelize.define(
+    "Tutor",
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true
+      },
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      username: {
+        type: DataTypes.STRING
+        //allowNull: false,
+      },
 
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            autoIncrement: true,
-            primaryKey: true
-        },
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        username: {
+      photo: {
+        type: DataTypes.STRING
+      },
 
-            type: DataTypes.STRING,
-            //allowNull: false,
-        },
-        
-        photo: {
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
 
-            type: DataTypes.STRING,
-        },
+      subjects: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      bio: {
+        type: DataTypes.TEXT
+      },
+      photo: {
+        type: DataTypes.BLOB
+      },
 
-        password: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
+      ratings: {
+        type: DataTypes.INTEGER
+      },
 
-        subjects: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        bio: {
-            type: DataTypes.TEXT
-        },
-        photo: {
-            type: DataTypes.BLOB
-          },
-    
-        ratings: {
-            type: DataTypes.INTEGER
-        },
-
-        availability: {
-            type: DataTypes.STRING
-        },
-
-    }, {
-        classMethods: {
-            associate: function (models) {
-                Tutor.belongsTo(models.User, {
-                    foreignKey: {
-                        allowNull: false
-                    }
-                });
-                Tutor.hasMany(models.Appointment, {
-                    onDelete: "cascade"
-                });
-            }
-        }
+      availability: {
+        type: DataTypes.STRING
+      }
     });
-    return Tutor;
+    Tutor.associate = function(models) {
+        Tutor.hasMany(models.Message, {
+          onDelete: "cascade"
+        });
+      };
+  return Tutor;
 };

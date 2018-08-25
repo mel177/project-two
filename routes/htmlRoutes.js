@@ -23,12 +23,17 @@ module.exports = function (app) {
   });
 
   app.get("/tutors/:username", function (req, res) {
-    db.Tutor.findAll({ //we need a join that gets messages from the messages table and user into from tutor table
+    db.Tutor.findOne({ //we need a join that gets messages from the messages table and user into from tutor table
       where: {
         username: req.params.username
-      }
+      },
+      include: [
+        {
+          model: db.Message
+        }
+      ]
     }).then(function (dbTutors) {
-      console.log(dbtutors)
+      console.log(dbTutors)
       res.render("tutorprofile", {
         tutor: dbTutors
       });
