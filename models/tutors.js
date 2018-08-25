@@ -12,13 +12,11 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
         },
         username: {
-
             type: DataTypes.STRING,
             allowNull: false,
         },
         
         photo: {
-
             type: DataTypes.STRING,
         },
 
@@ -62,5 +60,6 @@ module.exports = function (sequelize, DataTypes) {
             }
         }
     });
+   
     return Tutor;
 };
