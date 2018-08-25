@@ -24,7 +24,7 @@ module.exports = function(app) {
         tutorBio: dbTutors.bio,
         tutorRating: dbTutors.ratings
       };
-      console.log(tutor);
+      // console.log(tutor);
       // res.render("results", tutor);
       console.log("this does something");
       res.render("results", { tutor: tutorData });
@@ -32,26 +32,28 @@ module.exports = function(app) {
   });
 
   app.get("/tutors/:username", function(req, res) {
-    db.Message.findAll({ //we need a join that gets messages from the messages table and user into from tutor table
+    db.Message.findAll({
+      //we need a join that gets messages from the messages table and user into from tutor table
       where: {
         to: req.params.username
       }
     }).then(function(messages) {
-      res.render("tutorprofile", {message: messages});
+      res.render("tutorprofile", { message: messages });
     });
   });
 
   app.get("/students/:username", function(req, res) {
-    db.Message.findAll({ //we need a join that gets messages from the messages table and user into from students table
+    db.Message.findAll({
+      //we need a join that gets messages from the messages table and user into from students table
       where: {
         to: req.params.username
       }
     }).then(function(messages) {
-      res.render("studentprofile", {message: messages});
+      res.render("studentprofile", { message: messages });
     });
   });
   app.get("/api/students", function(req, res) {
-    res.redirect("/students/:username")
+    res.redirect("/students/:username");;
   });
   app.put("/appointment/:id", function(req, res) {
     db.Tutor.update(

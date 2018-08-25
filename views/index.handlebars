@@ -1,147 +1,6 @@
-<div class="top-bar">
-    <div class="top-bar-left">
-        <img id="logo" src="./assets/img/logo.png" alt="Home Logo">
-        <div class="title">
-            <p>Better Brains</p>
-        </div>
-    </div>
-    <div class="top-bar-right">
-
-        <a href="#" id="loginBtn" data-open="modal1">Login</a>
-        <div id="loginModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-
-                <form action="action_page.php" id="loginForm">
-
-                    <div class="loginContainer">
-                        <h2>Log In</h2>
-                        <hr>
-                        <label for="uname">
-                            <b>Username</b>
-                        </label>
-                        <input type="text" placeholder="Enter Username" name="uname" required>
-
-                        <label for="psw">
-                            <b>Password</b>
-                        </label>
-                        <input type="password" placeholder="Enter Password" name="psw" required>
-
-                        <button type="submit">Login</button>
-                        <label>
-                            <input type="checkbox" checked="checked" name="remember"> Remember me
-                        </label>
-                    </div>
-                </form>
-
-            </div>
-        </div>
-
-        <a href="#" id="stu-signupBtn" data-open="modal1">Student Sign Up</a>
-        <div id="stu-signupModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-
-                <form action="/api/students" method="POST" style="border:1px solid #ccc">
-                    <div class="formContainer">
-                        <h2>Sign Up As A Student</h2>
-                        <hr>
-
-                        <label for="name">
-                            <b>Name</b>
-                        </label>
-                        <input type="text" placeholder="Enter Name" name="name" required>
-
-                        <label for="email">
-                            <b>Email</b>
-                        </label>
-                        <input type="text" placeholder="Enter Email" name="email" required>
-
-                        <label for="psw">
-                            <b>Password</b>
-                        </label>
-                        <input type="password" placeholder="Enter Password" name="psw" required>
-
-                        <label for="psw-repeat">
-                            <b>Repeat Password</b>
-                        </label>
-                        <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-
-                        <label>
-                            <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember
-                            me
-                        </label>
-
-                        <p>By creating an account you agree to our
-                            <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-
-                        <div class="clearfix">
-                            <button type="button" class="cancelbtn">Cancel</button>
-                            <button type="submit" class="signupbtn">Sign Up</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <a href="#" id="tut-signupBtn" data-open="modal1">Tutor Sign Up</a>
-        <div id="tut-signupModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-
-                <form action="/api/tutors" method="POST" style="border:1px solid #ccc">
-                    <div class="formContainer">
-                        <h2>Sign Up As A Tutor</h2>
-                        <hr>
-
-                        <label for="name">
-                            <b>Name</b>
-                        </label>
-                        <input type="text" placeholder="Enter Name" name="name" required>
-
-                        <label for="subjects">
-                            <b>Subjects</b>
-                        </label>
-                        <input type="text" placeholder="Enter Subjects That Apply" name="subject" required>
-                        <input type="text" placeholder=". . .">
-                        <input type="text" placeholder=". . .">
-
-
-                        <label for="email">
-                            <b>Email</b>
-                        </label>
-                        <input type="text" placeholder="Enter Email" name="email" required>
-
-                        <label for="psw">
-                            <b>Password</b>
-                        </label>
-                        <input type="password" placeholder="Enter Password" name="psw" required>
-
-                        <label for="psw-repeat">
-                            <b>Repeat Password</b>
-                        </label>
-                        <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-
-                        <label>
-                            <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember
-                            me
-                        </label>
-
-                        <p>By creating an account you agree to our
-                            <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-
-                        <div class="clearfix">
-                            <button type="button" class="cancelbtn">Cancel</button>
-                            <button type="submit" class="signupbtn">Sign Up</button>
-                        </div>
-                    </div>
-                </form>
-
-            </div>
-        </div>
-    </div>
-</div>
-
+<head>
+    <title id="homePage">BetterBrain | Home</title>
+</head>
 <main class="display">
 
     <div class="sub-text">
@@ -150,7 +9,7 @@
 
     <form action="/results" method="POST">
         <div class="input-group input-group-rounded">
-            <input class="input-group-field" name="subject" type="search" placeholder="Enter a subject (ie. Math)">
+            <input class="input-group-field" name="subject" type="search" placeholder="Enter a subject (ie. Math)" required>
             <select id="selectMenu">
                 <option value="college">College</option>
                 <option value="high">High School</option>
@@ -164,39 +23,4 @@
 
 </main>
 
-<footer class="grid-container full" style="position: static, bottom: -250px">
-    <div class="grid-x grid-padding-x">
-        <div class="cell auto">
-            <div class="footer-links" id="api-links">
-                <h4>API Links</h4>
-                <a href="">Tutors</a>
-                <a href="">Students</a>
-            </div>
-        </div>
-        <div class="cell auto">
-            <div class="footer-links" id="created-by">
-                <h4>Created By:</h4>
-                <a href="https://github.com/prestonedwards3" target="blank">Preston</a>
-                <a href="https://github.com/medwasfy" target="blank">Med</a>
-                <a href="https://github.com/smpldvd" target="blank">David</a>
-                <a href="https://github.com/RajBommala" target="blank">Raj</a>
-                <a href="https://github.com/jscottwillems" target="blank">Josh</a>
-                <a href="https://github.com/mel177" target="blank">Melinh</a>
-            </div>
-        </div>
-    </div>
-    <hr>
-    <div class="grid-x grid-padding-x">
-        <div class="cell">
-            <p id="copy">&copy;Copyright 2018 Better Brains</p>
-        </div>
-    </div>
-</footer>
-
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.0-rc.2/dist/js/foundation.min.js" integrity="sha256-G6jsRyH1fxbsvFIXSCuwYmI1aIDYBa28xscrvmYjJy0="
-    crossorigin="anonymous"></script>
 <script src="./assets/js/index.js" type="text/javascript"></script>
-<!-- JS for modals -->
-<script src="./assets/js/modal.js" type="text/javascript"></script>

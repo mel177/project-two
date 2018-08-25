@@ -34,9 +34,9 @@
                 <label for="message">
                     <b>Enter Message Below</b>
                 </label>
-                <form action="/messages/{{this.username}}" method="POST"> 
-                <textarea id="messageBox" name="message" rows="10" cols="50" placeholder="Why not ask when this tutor is available?"></textarea>
-                <button type="submit" id="sendBtn">Send</button>
+                <form action="/messages/{{this.username}}" method="POST">
+                    <textarea id="messageBox" name="message" rows="10" cols="50" placeholder="Why not ask when this tutor is available?"></textarea>
+                    <button type="submit" id="sendBtn">Send</button>
                 </form>
             </div>
 
@@ -76,4 +76,8 @@
 
         })
     }
+
+    /* !-- $(#sendBtn).on("click", () => {
+        $(#sendBtn).text("<i class="fas fa-check-circle"></i>")
+    }) */
 </script>

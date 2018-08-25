@@ -31,6 +31,7 @@ module.exports = function(router) {
       res.render("tutor", { tutor: newTutor });
     });
   });
+
   // Signs up a student
   router.post("/api/students", function(req, res) {
     db.Student.create({
@@ -42,38 +43,35 @@ module.exports = function(router) {
       res.render("profile", { student: newStudent });
     });
   });
-  router.put("api/tutors/:id", function (req, res){
-      db.Tutor.update({ }, { })
+
+  router.put("api/tutors/:id", function(req, res) {
+    db.Tutor.update({}, {});
   });
-  router.post("/messages/:user", function(req, res){
+
+  router.post("/messages/:user", function(req, res) {
     db.Message.create({
       to: req.params.user,
       from: "student name",
       message: req.body.message
     }).then(function(newMessage) {
       console.log(newMessage);
-      res.redirect("/results") // need to figure out how to re display the results where they left off
+      res.redirect("/results"); // need to figure out how to re display the results where they left off
     });
   });
   //find specific tutor
 
   //find specific student
-  router.get("/api/students/:id", function(req, res) {
+  router.get("/api/students/:id", function(req, res) {});
 
-
-  
-
-//find specific student
-router.get("/students/:username", function(req, res) {
-
-  db.Student.findAll({
-    where: {
-      username: req.body.uname
-    }
-  }).then(function(dbStudents) {
-    console.log(dbStudents)
-    res.render("studentprofile", dbStudents);
+  //find specific student
+  router.get("/students/:username", function(req, res) {
+    db.Student.findAll({
+      where: {
+        username: req.body.uname
+      }
+    }).then(function(dbStudents) {
+      console.log(dbStudents);
+      res.render("studentprofile", dbStudents);
+    });
   });
-})
-
 };
