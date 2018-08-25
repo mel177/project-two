@@ -36,7 +36,12 @@ module.exports = function(app) {
       //we need a join that gets messages from the messages table and user into from tutor table
       where: {
         to: req.params.username
-      }
+      },
+      include: [
+        {
+          model: db.Message
+        }
+      ]
     }).then(function(messages) {
       res.render("tutorprofile", { message: messages });
     });
@@ -53,7 +58,7 @@ module.exports = function(app) {
     });
   });
   app.get("/api/students", function(req, res) {
-    res.redirect("/students/:username");;
+    res.redirect("/students/:username");
   });
   app.put("/appointment/:id", function(req, res) {
     db.Tutor.update(

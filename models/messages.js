@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Messages = sequelize.define("Message", {
+  var Message = sequelize.define("Message", {
     to: {
       type: DataTypes.STRING,
       allowNull: false
@@ -13,5 +13,14 @@ module.exports = function(sequelize, DataTypes) {
       //allowNull: false
     }
   });
-  return Messages;
+
+  Message.associate = function(models) {
+    Message.belongsTo(models.Tutor, {
+      foreignKey: {
+        allowNull: true
+      }
+    });
+  };
+
+  return Message;
 };
