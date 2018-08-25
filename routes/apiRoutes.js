@@ -1,11 +1,8 @@
 var db = require("../models/");
 var passport = require('passport');
 module.exports = function(router) {
-// ============================================
-// authenticate
-router.get('/profile', passport.authenticationMiddleware(), renderProfile);
 
-// ============================================
+
   router.post("/results", function(req, res){
     console.log(req.body.subject);
     db.Tutor.findAll({
