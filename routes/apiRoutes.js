@@ -16,21 +16,22 @@ module.exports = function(router) {
   });
 
   // Create a new tutor with the data available to us in req.body from the sign up page
-  router.post("/api/tutors", function(req, res) {
+  router.post("/tutors", function(req, res) {
     //console.log(req.body);
     db.Tutor.create({
       name: req.body.name,
       email: req.body.email,
       username: req.body.username,
       password: req.body.psw,
-      bio: req.body.bio,
-      phonenumber: req.body.number,
+      photo: req.body.photo,
+      bio: req.body.about,
       subjects: req.body.subject
     }).then(function(newTutor) {
       console.log(newTutor);
       res.render("tutorprofile", {tutor: newTutor})
     });
   });
+
   // Signs up a student
   router.post("/api/students", function(req, res) {
     db.Student.create({

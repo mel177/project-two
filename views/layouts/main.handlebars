@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Better Brains</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.0-rc.2/dist/css/foundation.min.css" integrity="sha256-iJQ8dZac/jUYHxiEnZJsyVpKcdq2sQvdA7t02QFmp30= sha384-SplqNBo/0ZlvSdwrP/riIPDozO5ck8+yIm++KVqyMAC53S6m3BaV+2OLpi7ULOOh sha512-ho6hK4sAWdCeqopNZWNy1d9Ok2hzfTLQLcGSr8ZlRzDzh6tNHkVoqSl6wgLsqls3yazwiG9H9dBCtSfPuiLRCQ=="
     crossorigin="anonymous">
   <link rel="stylesheet" href="/styles/styles.css">
@@ -96,10 +97,10 @@
       <a href="#" id="tut-signupBtn" data-open="modal1">Tutor Sign Up</a>
       <div id="tut-signupModal" class="modal">
         <div class="modal-content">
-          <span class="close">&times;</span>
 
           <form action="/api/tutors" method="POST" style="border:1px solid #ccc">
-            <div class="formContainer">
+            <div class="formContainer" id="tut-modal">
+              <span class="close">&times;</span>
               <h3>Sign Up As A Tutor</h3>
               <hr>
 
@@ -125,7 +126,7 @@
               <label for="about">
                 <b>About You</b>
               </label>
-              <textarea id="aboutBox" name="about" rows="8" cols="20">Add a brief description of yourself...</textarea>
+              <textarea id="aboutBox" name="about" rows="8" cols="20" placeholder="Add a brief descriptoin of yourself..."></textarea>
 
               <label for="photo">
                 <b>Profile IMG</b>

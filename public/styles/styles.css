@@ -1,5 +1,5 @@
 .list-group-item {
-  line-height: 2.5;
+  line-height: 2;
 }
 
 body {
@@ -58,7 +58,7 @@ body {
 
 .modal {
   display: none;
-  position: absolute;
+  position: fixed;
   z-index: 1;
   left: 0;
   top: 0;
@@ -76,6 +76,11 @@ body {
   padding: 5px;
   border: 1px solid #888;
   width: 613px;
+}
+
+#tut-modal {
+  overflow: auto;
+  height: 500px;
 }
 
 #level {
@@ -122,7 +127,7 @@ textarea:focus {
   padding-top: 50px;
 }
 
-.sendBtn {
+#sendBtn {
   width: 30%;
   margin-left: auto;
   margin-right: auto;
@@ -331,21 +336,6 @@ form {
   margin-top: 80px;
 }
 
-@font-face {
-  font-family: 'Title';
-  src: url(../fonts/title.ttf) format('truetype');
-}
-
-@font-face {
-  font-family: 'Sub';
-  src: url(../fonts/subtext.ttf) format('truetype');
-}
-
-@font-face {
-  font-family: 'Fine';
-  src: url(../fonts/fineness.ttf) format('truetype');
-}
-
 input[type=text],
 input[type=password] {
   width: 100%;
@@ -362,8 +352,6 @@ input[type=password]:focus {
   outline: none;
 }
 
-/* Set a style for all buttons */
-
 button {
   background-color: #4CAF50;
   color: white;
@@ -379,14 +367,10 @@ button:hover {
   opacity: 1;
 }
 
-/* Extra styles for the cancel button */
-
 .cancelbtn {
   padding: 14px 20px;
   background-color: #f44336;
 }
-
-/* Float cancel and signup buttons and add an equal width */
 
 .cancelbtn,
 .signupbtn {
@@ -394,14 +378,10 @@ button:hover {
   width: 50%;
 }
 
-/* Add padding to container elements */
-
 .formContainer {
   padding: 16px;
   text-align: center;
 }
-
-/* Clear floats */
 
 .clearfix::after {
   content: "";
@@ -409,13 +389,9 @@ button:hover {
   display: table;
 }
 
-/* Bordered form */
-
 #loginForm {
   border: 3px solid #f1f1f1;
 }
-
-/* Full-width inputs */
 
 #loginForm input[type=text],
 input[type=password] {
@@ -427,8 +403,6 @@ input[type=password] {
   box-sizing: border-box;
 }
 
-/* Set a style for all buttons */
-
 #loginForm button {
   background-color: #4CAF50;
   color: white;
@@ -439,13 +413,9 @@ input[type=password] {
   width: 100%;
 }
 
-/* Add a hover effect for buttons */
-
 #login Form button:hover {
   opacity: 0.8;
 }
-
-/* Extra style for the cancel button (red) */
 
 #loginForm .cancelbtn {
   width: auto;
@@ -453,27 +423,19 @@ input[type=password] {
   background-color: #f44336;
 }
 
-/* Center the avatar image inside this container */
-
 #loginForm .imgcontainer {
   text-align: center;
   margin: 24px 0 12px 0;
 }
 
-/* Add padding to containers */
-
 #loginForm .container {
   padding: 16px;
 }
-
-/* The "Forgot password" text */
 
 #loginForm span.psw {
   float: right;
   padding-top: 16px;
 }
-
-/* Change styles for span and cancel button on extra small screens */
 
 @media screen and (max-width: 300px) {
   #loginForm span.psw {
@@ -714,4 +676,19 @@ input[type=password] {
 
 .btn-next {
   right: 6em;
+}
+
+@font-face {
+  font-family: 'Title';
+  src: url(../fonts/title.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Sub';
+  src: url(../fonts/subtext.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Fine';
+  src: url(../fonts/fineness.ttf) format('truetype');
 }

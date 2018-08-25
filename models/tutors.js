@@ -35,7 +35,8 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.TEXT
         },
         photo: {
-            type: DataTypes.BLOB
+            type: DataTypes.TEXT,
+            defaultValue: "http://thevillageofkairos.com/wp-content/uploads/2016/06/team-man-placeholder.jpg"
           },
     
         ratings: {
